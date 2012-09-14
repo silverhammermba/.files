@@ -1,0 +1,7 @@
+[user]
+	name = Max
+	email = silverhammermba@gmail.com
+[core]
+	excludesfile = /home/max/.gitignore
+[alias]
+	stat = status -s -uno
