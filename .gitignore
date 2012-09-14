@@ -1,5 +1,17 @@
+# backup files
 *.swp
 *.swo
 *~
+# compiled files
 *.o
 *.so
+*.pyc
+# latex files
+*.aux
+*.dvi
+*.log
+*.nav
+*.pdf
+*.snm
+*.toc
+*.vrb

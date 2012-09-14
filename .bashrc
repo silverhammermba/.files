@@ -11,7 +11,7 @@ export RUBYLIB=$HOME/lib/ruby
 alias ls='ls --color=auto -B'
 eval $(dircolors -b)
 alias grep='grep --color=auto'
-export LESS="-R"
+export LESS="-FR"
 man() {
 	env \
 		LESS_TERMCAP_mb=$(printf "\e[1;31m") \
@@ -24,14 +24,16 @@ man() {
 			man "$@"
 }
 
+# autocomplete binaries after certain commands
 complete -cf sudo
 complete -cf man
 complete -cf which
 
 alias \:q='exit'
 alias \:e='vim'
-alias reboot='sudo reboot'
-alias halt='sudo halt'
 alias gmail='chromium --app="https://mail.google.com"'
 
-PS1='\[\e[1m\e[32m\]\W\[\e[0m\]\[\e[1;35m\]%\[\e[0m\] '
+export PS1="\[\e[s\] \[\e[u\$(git_check)\]\$(git_branch)\[\e[1;34m\]\h\[\e[m\]:\[\e[0;33m\]\W\[\e[m\]$ "
+
+bind '"\e[A": history-search-backward'
+bind '"\e[B": history-search-forward'
