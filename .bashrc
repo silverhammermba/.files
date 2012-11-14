@@ -5,6 +5,11 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+GIT_PS1_SHOWDIRTYSTATE="true"
+GIT_PS1_SHOWUPSTREAM="auto"
+source $HOME/.git-completion.sh
+source $HOME/.git-prompt.sh
+
 export PATH=$HOME/bin:$PATH:$HOME/.gem/ruby/1.9.1/bin
 export RUBYLIB=$HOME/lib/ruby
 
@@ -33,7 +38,7 @@ alias \:q='exit'
 alias \:e='vim'
 alias gmail='chromium --app="https://mail.google.com"'
 
-export PS1="\[\e[s\] \[\e[u\$(git_check)\]\$(git_branch)\[\e[1;34m\]\h\[\e[m\]:\[\e[0;33m\]\W\[\e[m\]$ "
+export PS1='$(__git_ps1 "%s ")\[\e[1;34m\]\h\[\e[m\]:\[\e[0;33m\]\W\[\e[m\]$ '
 
 bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
