@@ -8,5 +8,5 @@ set guioptions=ai
 set co=84
 set lines=50
 
-" needs to be rest for GUI
+" needs to be reset for GUI
 set visualbell t_vb=

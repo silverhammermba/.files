@@ -51,3 +51,5 @@ autocmd BufReadPost,FileReadPost *.txt setlocal textwidth=80
 hi def link whiteSpaceError Error
 autocmd Syntax * syn match whiteSpaceError "\(\S\| \)\@<=\t\+" containedin=ALL
 autocmd Syntax * syn match whiteSpaceError "\s\+\%#\@<!$"      containedin=ALL
+
+colorscheme desert256
