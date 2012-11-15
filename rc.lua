@@ -333,6 +333,8 @@ awful.rules.rules = {
       properties = { floating = true } },
     { rule = { class = "gimp" },
       properties = { floating = true } },
+    { rule = { name = "Wicd Network Manager" },
+      properties = { floating = true } },
 }
 -- }}}
 
