@@ -36,7 +36,6 @@ complete -cf which
 
 alias \:q='exit'
 alias \:e='vim'
-alias gmail='chromium --app="https://mail.google.com"'
 
 export PS1='$(__git_ps1 "%s ")\[\e[1;34m\]\h\[\e[m\]:\[\e[0;33m\]\W\[\e[m\]$ '
 
