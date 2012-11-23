@@ -30,11 +30,9 @@ set incsearch
 set backspace=indent,eol,start
 
 set mouse=a
+
 syntax enable
 filetype plugin indent on
-
-" load custom Ruby Vim methods
-"ruby require 'vim'
 
 " custom key bindngs
 " make Y behavior consistent with C and D
@@ -48,7 +46,7 @@ autocmd BufReadPost,FileReadPost *.tex setlocal textwidth=80
 autocmd BufReadPost,FileReadPost *.txt setlocal textwidth=80
 
 " highlight erroneous whitespace
-hi def link whiteSpaceError Error
+highlight def link whiteSpaceError Error
 autocmd Syntax * syn match whiteSpaceError "\(\S\| \)\@<=\t\+" containedin=ALL
 autocmd Syntax * syn match whiteSpaceError "\s\+\%#\@<!$"      containedin=ALL
 
