@@ -15,3 +15,5 @@
 [alias]
 	stat = status -s -uno
 	ls = log --graph --decorate --oneline --date-order -5
+[push]
+	default = current
