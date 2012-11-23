@@ -16,7 +16,7 @@ export RUBYLIB=$HOME/lib/ruby
 alias ls='ls --color=auto -B'
 eval $(dircolors -b)
 alias grep='grep --color=auto'
-export LESS="-FR"
+export LESS="-R"
 man() {
 	env \
 		LESS_TERMCAP_mb=$(printf "\e[1;31m") \
