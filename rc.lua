@@ -106,8 +106,8 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 -- Create a textclock widget
 mytextclock = awful.widget.textclock()
 
--- mybattery = wibox.widget.textbox()
--- vicious.register(mybattery, vicious.widgets.bat, " $1$2%", 61, "BAT0")
+mybattery = wibox.widget.textbox()
+vicious.register(mybattery, vicious.widgets.bat, " $1$2%", 61, "BAT0")
 
 -- Create a wibox for each screen and add it
 mywibox = {}
@@ -185,7 +185,7 @@ for s = 1, screen.count() do
     -- Widgets that are aligned to the right
     local right_layout = wibox.layout.fixed.horizontal()
     if s == 1 then right_layout:add(wibox.widget.systray()) end
-    -- right_layout:add(mybattery)
+    right_layout:add(mybattery)
     right_layout:add(mytextclock)
     right_layout:add(mylayoutbox[s])
 
