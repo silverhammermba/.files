@@ -1,5 +1,5 @@
 " color scheme
-colo desert
+colo solarized
 
 " copy text nicely, use icon
 set guioptions=ai
