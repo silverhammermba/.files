@@ -1,7 +1,7 @@
 " consolidate backups
 set backup
-set backupdir=~/.vim/backup
-set dir=~/.vim/swap
+set backupdir=$HOME/.vim/backup
+set dir=$HOME/.vim/swap
 
 " set tabs
 set tabstop=4
