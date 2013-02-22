@@ -40,7 +40,7 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
-beautiful.init("/home/max/.config/awesome/themes/max/theme.lua")
+beautiful.init("/usr/share/awesome/themes/default/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "xterm"
@@ -52,15 +52,16 @@ editor_cmd = terminal .. " -e " .. editor
 -- If you do not like this or do not have such a key,
 -- I suggest you to remap Mod4 to another key using xmodmap or other tools.
 -- However, you can use another modifier like Mod1, but it may interact with others.
-modkey = "Mod4"
 alt    = "Mod1"
+modkey = "Mod4"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 local layouts =
 {
-    awful.layout.suit.max,
     awful.layout.suit.tile,
-    awful.layout.suit.floating
+    awful.layout.suit.fair.horizontal,
+    awful.layout.suit.max,
+    awful.layout.suit.floating,
 }
 -- }}}
 
@@ -77,7 +78,7 @@ end
 tags = {}
 for s = 1, screen.count() do
     -- Each screen has its own tag table.
-    tags[s] = awful.tag({ "α", "β", "γ" }, s, layouts[1])
+    tags[s] = awful.tag({ "α", "β", "γ", "δ" }, s, layouts[1])
 end
 -- }}}
 
@@ -94,9 +95,6 @@ mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesom
                                     { "open terminal", terminal }
                                   }
                         })
-
-mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
-                                     menu = mymainmenu })
 
 -- Menubar configuration
 menubar.utils.terminal = terminal -- Set the terminal for applications that require it
@@ -213,12 +211,12 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "Right", awful.tag.viewnext       ),
     awful.key({ modkey,           }, "Tab",   awful.tag.history.restore),
 
-    awful.key({ modkey,           }, "j",
+    awful.key({ modkey,           }, "h",
         function ()
             awful.client.focus.byidx(-1)
             if client.focus then client.focus:raise() end
         end),
-    awful.key({ modkey,           }, "k",
+    awful.key({ modkey,           }, "l",
         function ()
             awful.client.focus.byidx( 1)
             if client.focus then client.focus:raise() end
@@ -226,12 +224,12 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "w", function () mymainmenu:show() end),
 
     -- Layout manipulation
-    awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx( -1)    end),
-    awful.key({ modkey, "Shift"   }, "k", function () awful.client.swap.byidx(  1)    end),
-    awful.key({ modkey, "Control" }, "j", function () awful.screen.focus_relative(-1) end),
-    awful.key({ modkey, "Control" }, "k", function () awful.screen.focus_relative( 1) end),
+    awful.key({ modkey, "Shift"   }, "h", function () awful.client.swap.byidx(-1)     end),
+    awful.key({ modkey, "Shift"   }, "l", function () awful.client.swap.byidx( 1)     end),
+    awful.key({ modkey, "Control" }, "h", function () awful.screen.focus_relative(-1) end),
+    awful.key({ modkey, "Control" }, "l", function () awful.screen.focus_relative( 1) end),
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto),
-    awful.key({ alt   ,           }, "Tab",
+    awful.key({ alt,              }, "Tab",
         function ()
             awful.client.focus.history.previous()
             if client.focus then
@@ -244,12 +242,6 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "r", awesome.restart),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit),
 
-    awful.key({ modkey,           }, "l",    function () awful.tag.incmwfact( 0.05)    end),
-    awful.key({ modkey,           }, "h",    function () awful.tag.incmwfact(-0.05)    end),
-    awful.key({ modkey, "Shift"   }, "h",    function () awful.tag.incnmaster( 1)      end),
-    awful.key({ modkey, "Shift"   }, "l",    function () awful.tag.incnmaster(-1)      end),
-    awful.key({ modkey, "Control" }, "h",    function () awful.tag.incncol( 1)         end),
-    awful.key({ modkey, "Control" }, "l",    function () awful.tag.incncol(-1)         end),
     awful.key({ modkey,           }, "Up",   function () awful.layout.inc(layouts,  1) end),
     awful.key({ modkey,           }, "Down", function () awful.layout.inc(layouts, -1) end),
 
@@ -273,19 +265,10 @@ clientkeys = awful.util.table.join(
     awful.key({ modkey,           }, "f",      function (c) c.fullscreen = not c.fullscreen  end),
     awful.key({ modkey,           }, "Escape", function (c) c:kill()                         end),
     awful.key({ modkey,           }, "space",  awful.client.floating.toggle                     ),
-    awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end),
-    awful.key({ modkey,           }, "o",      awful.client.movetoscreen                        ),
-    awful.key({ modkey, "Shift"   }, "r",      function (c) c:redraw()                       end),
---    awful.key({ modkey,           }, "t",
---        function (c)
---            if   c.titlebar then awful.titlebar.remove(c)
---            else awful.titlebar.add(c, { modkey = modkey }) end
---        end),
-    awful.key({ modkey,           }, "n",
+    awful.key({ modkey,           }, "t",
         function (c)
-            -- The client currently has the input focus, so it cannot be
-            -- minimized, since minimized clients can't have the focus.
-            c.minimized = true
+            if   c.titlebar then awful.titlebar.remove(c)
+            else awful.titelbar.add(c, { modkey = modkey }) end
         end),
     awful.key({ modkey,           }, "m",
         function (c)
@@ -350,19 +333,9 @@ awful.rules.rules = {
                      border_color = beautiful.border_normal,
                      focus = awful.client.focus.filter,
                      keys = clientkeys,
-                     buttons = clientbuttons,
-                     size_hints_honor = false } },
-    { rule = { class = "MPlayer" },
-      properties = { floating = true } },
+                     size_hints_honor = false,
+                     buttons = clientbuttons } },
     { rule = { class = "pinentry" },
-      properties = { floating = true } },
-    { rule = { class = "Steam" },
-      properties = { floating = true } },
-    { rule = { class = "gimp" },
-      properties = { floating = true } },
-    { rule = { name = "Wicd Network Manager" },
-      properties = { floating = true } },
-    { rule = { class = "Exe" },
       properties = { floating = true } },
 }
 -- }}}
