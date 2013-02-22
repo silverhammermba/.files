@@ -1,5 +1,4 @@
 xrdb -merge ~/.Xresources
-wicd-client -t &
-dropbox &
+wicd-client --tray &
 
 exec awesome
