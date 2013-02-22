@@ -1,18 +1,14 @@
-#
-# ~/.bashrc
-#
-
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+# prompt
 GIT_PS1_SHOWDIRTYSTATE="true"
 GIT_PS1_SHOWUPSTREAM="auto"
 source $HOME/.git-completion.sh
 source $HOME/.git-prompt.sh
+export PS1='$(__git_ps1 "%s ")\[\e[1;34m\]\h\[\e[m\]:\[\e[0;33m\]\W\[\e[m\]$ '
 
-export PATH=$HOME/bin:$PATH:$HOME/.gem/ruby/1.9.1/bin
-export RUBYLIB=$HOME/lib/ruby
-
+# colors
 alias ls='ls --color=auto -B'
 eval $(dircolors -b)
 alias grep='grep --color=auto'
@@ -36,8 +32,6 @@ complete -cf which
 
 alias \:q='exit'
 alias \:e='vim'
-
-export PS1='$(__git_ps1 "%s ")\[\e[1;34m\]\h\[\e[m\]:\[\e[0;33m\]\W\[\e[m\]$ '
 
 bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
