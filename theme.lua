@@ -88,7 +88,7 @@ theme.layout_tiletop = "/home/max/.config/awesome/themes/max/layouts/tiletopw.pn
 theme.layout_spiral  = "/home/max/.config/awesome/themes/max/layouts/spiralw.png"
 theme.layout_dwindle = "/home/max/.config/awesome/themes/max/layouts/dwindlew.png"
 
-theme.awesome_icon = "/usr/share/awesome/icons/awesome16.png"
+theme.awesome_icon = "/home/max/.config/awesome/themes/max/awesome.png"
 
 -- Define the icon theme for application icons. If not set then the icons from
 -- /usr/share/icons and /usr/share/icons/hicolor will be used.
