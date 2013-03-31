@@ -332,6 +332,10 @@ awful.rules.rules = {
                      buttons = clientbuttons } },
     { rule = { class = "pinentry" },
       properties = { floating = true } },
+    { rule = { class = "Exe" },
+      properties = { floating = true } },
+    { rule = { class = "Steam" },
+      properties = { floating = true } },
     { rule = { name = "Wicd Network Manager" },
       properties = { floating = true } },
 }
