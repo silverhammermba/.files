@@ -340,6 +340,8 @@ awful.rules.rules = {
       properties = { floating = true } },
     { rule = { name = "Wicd Network Manager" },
       properties = { floating = true } },
+    { rule = { class = "XTerm" },
+      properties = { opacity = 0.8 } },
 }
 -- }}}
 
