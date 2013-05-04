@@ -332,6 +332,8 @@ awful.rules.rules = {
                      buttons = clientbuttons } },
     { rule = { name = "Counter-Strike" },
       properties = { floating = true } },
+    { rule = { class = "Display" },
+      properties = { floating = true } },
     { rule = { class = "pinentry" },
       properties = { floating = true } },
     { rule = { class = "Exe" },
