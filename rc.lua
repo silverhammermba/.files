@@ -334,6 +334,8 @@ awful.rules.rules = {
       properties = { floating = true } },
     { rule = { class = "Display" },
       properties = { floating = true } },
+    { rule = { class = "Gvim" },
+      properties = { opacity = 0.95 } },
     { rule = { class = "pinentry" },
       properties = { floating = true } },
     { rule = { class = "Exe" },
