@@ -1,5 +1,5 @@
 " color scheme
-colo solarized
+colo molokai
 
 " copy text nicely, use icon
 set guioptions=ai
