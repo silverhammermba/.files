@@ -330,6 +330,8 @@ awful.rules.rules = {
                      keys = clientkeys,
                      size_hints_honor = false,
                      buttons = clientbuttons } },
+    { rule = { class = "com-trollworks-ttk-Launcher" },
+      properties = { floating = true } },
     { rule = { name = "Counter-Strike" },
       properties = { floating = true } },
     { rule = { class = "Display" },
