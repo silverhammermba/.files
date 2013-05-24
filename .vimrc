@@ -3,6 +3,8 @@ set backup
 set backupdir=$HOME/.vim/backup
 set dir=$HOME/.vim/swap
 
+set autoread
+
 " set tabs
 set tabstop=4
 set softtabstop=4
