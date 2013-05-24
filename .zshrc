@@ -12,6 +12,13 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
+# aliases
+alias ls='ls --color'
+alias grep='grep --color=auto'
+alias \:q='exit'
+alias \:e='vim'
+
+# prompt stuff
 autoload -U promptinit && promptinit
 autoload -U colors && colors
 autoload -Uz vcs_info
