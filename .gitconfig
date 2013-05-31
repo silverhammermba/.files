@@ -13,7 +13,9 @@
 [merge]
 	tool = vimdiff
 [alias]
-	stat = status -s -uno
+	k = !gitk --word-diff &
 	ls = log --graph --decorate --oneline --date-order -5
+	stat = status -s -uno
+	wdiff = diff --word-diff
 [push]
 	default = current
