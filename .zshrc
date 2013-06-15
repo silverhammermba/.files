@@ -24,6 +24,10 @@ autoload -U colors && colors
 autoload -Uz vcs_info
 
 zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' stagedstr '+'
+zstyle ':vcs_info:*' unstagedstr '*'
+
 precmd() {
 	vcs_info
 }
