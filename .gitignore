@@ -18,3 +18,4 @@
 *.vrb
 # misc
 *.DS_Store
+Session.vim
