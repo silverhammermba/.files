@@ -48,6 +48,9 @@ autocmd BufEnter * silent! lcd %:p:h
 autocmd BufReadPost,FileReadPost *.tex setlocal textwidth=80
 autocmd BufReadPost,FileReadPost *.txt setlocal textwidth=80
 
+" syntax highlighting for GLSL shaders
+autocmd BufNewFile,BufRead *.glsl setlocal ft=glsl
+
 " highlight erroneous whitespace
 highlight def link whiteSpaceError Error
 autocmd Syntax * syn match whiteSpaceError "\(\S\| \)\@<=\t\+" containedin=ALL
