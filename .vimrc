@@ -11,6 +11,7 @@ set softtabstop=4
 set shiftwidth=4
 set smarttab
 set autoindent
+set cinwords=
 
 " no text wrapping
 set nowrap
