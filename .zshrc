@@ -37,3 +37,5 @@ zstyle ':vcs_info:git*' formats "%b%m%u%c"
 setopt prompt_subst
 PROMPT="%{$fg_bold[blue]%}%m%{$reset_color%}:%{$fg[yellow]%}%~%{$reset_color%}%# "
 RPROMPT='${vcs_info_msg_0_}'
+
+TERM=linux setterm -regtabs 4
