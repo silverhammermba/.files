@@ -1,5 +1,4 @@
 xrdb -merge ~/.Xresources
 wicd-client --tray &
 xcompmgr -f -D 3 &
-xscreensaver -no-splash &
 ~/.local/bin/random_background
