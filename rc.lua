@@ -239,17 +239,14 @@ globalkeys = awful.util.table.join(
 
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
-    awful.key({ modkey, "Control" }, "r", awesome.restart),
-    awful.key({ modkey, "Shift"   }, "q", awesome.quit),
-
-    awful.key({ modkey,           }, "j",   function () awful.layout.inc(layouts,  1) end),
-    awful.key({ modkey,           }, "k", function () awful.layout.inc(layouts, -1) end),
-
-    awful.key({ modkey, "Control" }, "n", awful.client.restore),
+    awful.key({ modkey, "Control" }, "r",      awesome.restart),
+    awful.key({ modkey, "Shift"   }, "q",      awesome.quit),
+    awful.key({ modkey,           }, "j",      function () awful.layout.inc(layouts,  1) end),
+    awful.key({ modkey,           }, "k",      function () awful.layout.inc(layouts, -1) end),
+    awful.key({ modkey, "Control" }, "n",      awful.client.restore),
 
     -- Prompt
-    awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run() end),
-
+    awful.key({ modkey }, "r", function () mypromptbox[mouse.screen]:run() end),
     awful.key({ modkey }, "x",
               function ()
                   awful.prompt.run({ prompt = "Run Lua code: " },
@@ -257,8 +254,22 @@ globalkeys = awful.util.table.join(
                   awful.util.eval, nil,
                   awful.util.getdir("cache") .. "/history_eval")
               end),
+
     -- Menubar
-    awful.key({ modkey }, "p", function() menubar.show() end)
+    awful.key({ modkey }, "p", function() menubar.show() end),
+
+    -- Extra Keyboard Keys
+    awful.key({ }, "XF86ScreenSaver"     , function () awful.util.spawn("xscreensaver-command -lock") end),
+    -- awful.key({ }, "XF86WebCam"          , function () awful.util.spawn() end),
+    -- awful.key({ }, "XF86Display"         , function () awful.util.spawn() end),
+    awful.key({ }, "XF86AudioPrev"       , function () awful.util.spawn("mpc prev") end),
+    awful.key({ }, "XF86AudioPlay"       , function () awful.util.spawn("mpc toggle") end),
+    awful.key({ }, "XF86AudioNext"       , function () awful.util.spawn("mpc next") end),
+    awful.key({ }, "XF86AudioMute"       , function () awful.util.spawn("amixer set Master toggle") end),
+    awful.key({ }, "XF86AudioLowerVolume", function () awful.util.spawn("amixer set Master 5-") end),
+    awful.key({ }, "XF86AudioRaiseVolume", function () awful.util.spawn("amixer set Master 5+") end),
+    awful.key({ }, "XF86AudioMicMute"    , function () awful.util.spawn("amixer set Capture toggle") end)
+    -- awful.key({ }, "XF86Launch1"         , function () awful.util.spawn() end)
 )
 
 clientkeys = awful.util.table.join(
