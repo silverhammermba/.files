@@ -7,35 +7,10 @@ require("awful.autofocus")
 local wibox = require("wibox")
 -- Theme handling library
 local beautiful = require("beautiful")
--- Notification library
-local naughty = require("naughty")
 local menubar = require("menubar")
 -- Widget library
 local vicious = require("vicious")
 
--- {{{ Error handling
--- Check if awesome encountered an error during startup and fell back to
--- another config (This code will only ever execute for the fallback config)
-if awesome.startup_errors then
-    naughty.notify({ preset = naughty.config.presets.critical,
-                     title = "Oops, there were errors during startup!",
-                     text = awesome.startup_errors })
-end
-
--- Handle runtime errors after startup
-do
-    local in_error = false
-    awesome.connect_signal("debug::error", function (err)
-        -- Make sure we don't go into an endless error loop
-        if in_error then return end
-        in_error = true
-
-        naughty.notify({ preset = naughty.config.presets.critical,
-                         title = "Oops, an error happened!",
-                         text = err })
-        in_error = false
-    end)
-end
 -- }}}
 
 -- {{{ Variable definitions
@@ -265,9 +240,9 @@ globalkeys = awful.util.table.join(
     awful.key({ }, "XF86AudioPrev"       , function () awful.util.spawn("mpc prev") end),
     awful.key({ }, "XF86AudioPlay"       , function () awful.util.spawn("mpc toggle") end),
     awful.key({ }, "XF86AudioNext"       , function () awful.util.spawn("mpc next") end),
-    awful.key({ }, "XF86AudioMute"       , function () awful.util.spawn("amixer set Master toggle") end),
-    awful.key({ }, "XF86AudioLowerVolume", function () awful.util.spawn("amixer set Master 5-") end),
-    awful.key({ }, "XF86AudioRaiseVolume", function () awful.util.spawn("amixer set Master 5+") end),
+    awful.key({ }, "XF86AudioMute"       , function () awful.util.spawn_with_shell("amixer set Master toggle && volume_osd") end),
+    awful.key({ }, "XF86AudioLowerVolume", function () awful.util.spawn_with_shell("amixer set Master 5- && volume_osd") end),
+    awful.key({ }, "XF86AudioRaiseVolume", function () awful.util.spawn_with_shell("amixer set Master 5+ && volume_osd") end),
     awful.key({ }, "XF86AudioMicMute"    , function () awful.util.spawn("amixer set Capture toggle") end)
     -- awful.key({ }, "XF86Launch1"         , function () awful.util.spawn() end)
 )
