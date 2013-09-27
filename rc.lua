@@ -40,7 +40,7 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
-beautiful.init("/home/max/.config/awesome/themes/max/theme.lua")
+beautiful.init("/home/max/.config/awesome/themes/h5g/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "xterm"
