@@ -353,21 +353,8 @@ set ebind     = @mode_bind global,-insert
 
 # Link following (similar to vimperator and konqueror)
 set follow_hint_keys = fjdksla;
-@cbind  fl*  = spawn @scripts_dir/follow.sh \@< uzbl.follow("\@follow_hint_keys", "%s", 'click') >\@
-@cbind  Fl*  = spawn @scripts_dir/follow.sh \@< uzbl.follow("\@follow_hint_keys", "%s", 'newwindow') >\@
-@cbind  fL*  = spawn @scripts_dir/follow.sh \@< uzbl.follow("\@follow_hint_keys", "%s", 'returnuri') >\@ set
-@cbind  FL*  = spawn @scripts_dir/follow.sh \@< uzbl.follow("\@follow_hint_keys", "%s", 'returnuri') >\@ clipboard
-@cbind  fi   = spawn @scripts_dir/go_input.sh
-
-@cbind  fs  = spawn @scripts_dir/follow.sh \@< uzbl.follow.followSelection('returnuri') >\@ set
-@cbind  fS  = spawn @scripts_dir/follow.sh \@< uzbl.follow.followSelection('click') >\@
-@cbind  Fs  = spawn @scripts_dir/follow.sh \@< uzbl.follow.followSelection('newwindow') >\@
-@cbind  FS  = spawn @scripts_dir/follow.sh \@< uzbl.follow.followSelection('returnuri') >\@ clipboard
-
-@cbind  ft*  = spawn @scripts_dir/follow.sh \@< uzbl.follow.followTextContent("%s", 'returnuri') >\@ set
-@cbind  fT*  = spawn @scripts_dir/follow.sh \@< uzbl.follow.followTextContent("%s", 'click') >\@
-@cbind  Ft*  = spawn @scripts_dir/follow.sh \@< uzbl.follow.followTextContent("%s", 'newwindow') >\@
-@cbind  FT*  = spawn @scripts_dir/follow.sh \@< uzbl.follow.followTextContent("%s", 'returnuri') >\@ clipboard
+@cbind  f*  = spawn @scripts_dir/follow.sh \@< uzbl.follow("\@follow_hint_keys", "%s", 'click') >\@
+@cbind  F*  = spawn @scripts_dir/follow.sh \@< uzbl.follow("\@follow_hint_keys", "%s", 'newwindow') >\@
 
 @cbind  '*  = spawn @scripts_dir/follow.sh \@< uzbl.follow.followTextContent("%s", 'click') >\@
 
