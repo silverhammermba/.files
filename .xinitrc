@@ -1,2 +1,2 @@
 ~/.xprofile
-exec startxfce4
+exec awesome
