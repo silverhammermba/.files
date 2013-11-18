@@ -1,2 +1,2 @@
 xrdb -merge ~/.Xresources
-/usr/bin/VBoxClient-all &
+VBoxClient-all &
