@@ -34,12 +34,22 @@ set backspace=indent,eol,start
 
 set mouse=a
 
+" change default split windows
+set splitbelow
+set splitright
+
 syntax enable
 filetype plugin indent on
 
 " custom key bindngs
 " make Y behavior consistent with C and D
 nnoremap Y y$
+
+" faster window switching
+nnoremap <C-H> <C-W><C-H>
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
 
 " update cwd for each buffer
 autocmd BufEnter * silent! lcd %:p:h
