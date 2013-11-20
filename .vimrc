@@ -48,6 +48,9 @@ autocmd BufEnter * silent! lcd %:p:h
 autocmd BufReadPost,FileReadPost *.tex setlocal textwidth=80
 autocmd BufReadPost,FileReadPost *.txt setlocal textwidth=80
 
+" ruby indentation style
+autocmd BufReadPost,FileReadPost *.rb setlocal tabstop=2 shiftwidth=2 expandtab
+
 " syntax highlighting for GLSL shaders
 autocmd BufNewFile,BufRead *.glsl setlocal ft=glsl
 
