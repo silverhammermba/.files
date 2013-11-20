@@ -345,7 +345,7 @@ set ebind     = @mode_bind global,-insert
 @cbind  D        = spawn @scripts_dir/load_url_from_temps.sh
 
 # Link following (similar to vimperator and konqueror)
-set follow_hint_keys = fjdksla;
+set follow_hint_keys = fjdkrueislwo
 @cbind  f*  = spawn @scripts_dir/follow.sh \@< uzbl.follow("\@follow_hint_keys", "%s", 'click') >\@
 @cbind  F*  = spawn @scripts_dir/follow.sh \@< uzbl.follow("\@follow_hint_keys", "%s", 'newwindow') >\@
 
