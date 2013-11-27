@@ -1,2 +1,2 @@
 ~/.xprofile
-exec awesome
+exec i3
