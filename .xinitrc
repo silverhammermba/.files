@@ -1,2 +1,2 @@
 ~/.xprofile
-exec herbstluftwm
+exec awesome
