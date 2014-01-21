@@ -55,8 +55,8 @@ nnoremap <C-L> <C-W><C-L>
 autocmd BufEnter * silent! lcd %:p:h
 
 " set textwidth for certain file types
-autocmd FileType text setlocal textwidth=80
-autocmd FileType tex setlocal textwidth=80
+autocmd Filetype tex      setlocal textwidth=80
+autocmd FileType text     setlocal textwidth=80
 autocmd FileType markdown setlocal textwidth=80
 
 " ruby indentation style
