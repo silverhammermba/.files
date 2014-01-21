@@ -227,26 +227,14 @@ globalkeys = awful.util.table.join(
               end),
 
     -- Menubar
-    awful.key({ modkey }, "p", function() menubar.show() end),
-
-    -- Extra Keyboard Keys
-    awful.key({ }, "XF86ScreenSaver"     , function () awful.util.spawn("xscreensaver-command -lock") end),
-    -- awful.key({ }, "XF86WebCam"          , function () awful.util.spawn() end),
-    -- awful.key({ }, "XF86Display"         , function () awful.util.spawn() end),
-    awful.key({ }, "XF86AudioPrev"       , function () awful.util.spawn("mpc prev") end),
-    awful.key({ }, "XF86AudioPlay"       , function () awful.util.spawn("mpc toggle") end),
-    awful.key({ }, "XF86AudioNext"       , function () awful.util.spawn("mpc next") end),
-    awful.key({ }, "XF86AudioMute"       , function () awful.util.spawn_with_shell("amixer set Master toggle && volume_osd") end),
-    awful.key({ }, "XF86AudioLowerVolume", function () awful.util.spawn_with_shell("amixer set Master 5- && volume_osd") end),
-    awful.key({ }, "XF86AudioRaiseVolume", function () awful.util.spawn_with_shell("amixer set Master 5+ && volume_osd") end),
-    awful.key({ }, "XF86AudioMicMute"    , function () awful.util.spawn("amixer set Capture toggle") end)
-    -- awful.key({ }, "XF86Launch1"         , function () awful.util.spawn() end)
+    awful.key({ modkey }, "p", function() menubar.show() end)
 )
 
 clientkeys = awful.util.table.join(
     awful.key({ modkey,           }, "f",      function (c) c.fullscreen = not c.fullscreen  end),
     awful.key({ modkey,           }, "Escape", function (c) c:kill()                         end),
     awful.key({ modkey,           }, "space",  awful.client.floating.toggle                     ),
+    awful.key({ modkey,           }, "o",      awful.client.movetoscreen                        ),
     awful.key({ modkey,           }, "m",
         function (c)
             c.maximized_horizontal = not c.maximized_horizontal
