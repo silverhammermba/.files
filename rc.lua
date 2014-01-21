@@ -234,7 +234,7 @@ clientkeys = awful.util.table.join(
     awful.key({ modkey,           }, "f",      function (c) c.fullscreen = not c.fullscreen  end),
     awful.key({ modkey,           }, "Escape", function (c) c:kill()                         end),
     awful.key({ modkey,           }, "space",  awful.client.floating.toggle                     ),
-    awful.key({ modkey,           }, "o",      awful.client.movetoscreen                        ),
+    awful.key({ modkey, "Shift"   }, "o",      awful.client.movetoscreen                        ),
     awful.key({ modkey,           }, "m",
         function (c)
             c.maximized_horizontal = not c.maximized_horizontal
