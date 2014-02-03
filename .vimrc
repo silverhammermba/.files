@@ -1,7 +1,7 @@
 " consolidate backups
 set backup
 set backupdir=$HOME/.vim/backup
-set dir=$HOME/.vim/swap
+set directory=$HOME/.vim/swap//
 
 set autoread
 
