@@ -1,6 +1,9 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+# because tmux is dumb
+export TERM=xterm-256color
+
 # prompt
 GIT_PS1_SHOWDIRTYSTATE="true"
 GIT_PS1_SHOWUPSTREAM="auto"
