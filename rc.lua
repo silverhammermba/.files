@@ -203,8 +203,6 @@ root.buttons(awful.util.table.join(
 
 -- {{{ Key bindings
 globalkeys = awful.util.table.join(
-    awful.key({ modkey,           }, "Left",  awful.tag.viewprev       ),
-    awful.key({ modkey,           }, "Right", awful.tag.viewnext       ),
     awful.key({ modkey,           }, "Tab",   awful.tag.history.restore),
 
     awful.key({ modkey,           }, "h",
@@ -235,13 +233,10 @@ globalkeys = awful.util.table.join(
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
     awful.key({ modkey, "Control" }, "r",      awesome.restart),
-    awful.key({ modkey, "Shift"   }, "q",      awesome.quit),
+    awful.key({ modkey, "Control" }, "q",      awesome.quit),
     awful.key({ modkey,           }, "j",      function () awful.layout.inc(layouts,  1) end),
     awful.key({ modkey,           }, "k",      function () awful.layout.inc(layouts, -1) end),
     awful.key({ modkey, "Control" }, "n", awful.client.restore),
-
-    -- Prompt
-    awful.key({ modkey }, "r", function () awful.util.spawn("dmenu_run") end),
 
     awful.key({ modkey }, "x",
               function ()
@@ -251,7 +246,7 @@ globalkeys = awful.util.table.join(
                   awful.util.getdir("cache") .. "/history_eval")
               end),
     -- Menubar
-    awful.key({ modkey }, "p", function() menubar.show() end)
+    awful.key({ modkey }, "r", function() menubar.show() end)
 )
 
 clientkeys = awful.util.table.join(
@@ -264,18 +259,13 @@ clientkeys = awful.util.table.join(
             -- The client currently has the input focus, so it cannot be
             -- minimized, since minimized clients can't have the focus.
             c.minimized = true
-        end),
-    awful.key({ modkey,           }, "m",
-        function (c)
-            c.maximized_horizontal = not c.maximized_horizontal
-            c.maximized_vertical   = not c.maximized_vertical
         end)
 )
 
 -- Bind all key numbers to tags.
 -- Be careful: we use keycodes to make it works on any keyboard layout.
 -- This should map on the top row of your keyboard, usually 1 to 9.
-for i = 1, 9 do
+for i = 1, 4 do
     globalkeys = awful.util.table.join(globalkeys,
         -- View tag only.
         awful.key({ modkey }, "#" .. i + 9,
