@@ -4,18 +4,18 @@
 
 theme = {}
 
-theme.font          = "DejaVuSans 8"
+theme.font          = "sans 8"
 
-theme.bg_normal     = "#e03f83"
-theme.bg_focus      = "#6f3579"
+theme.bg_normal     = "#00000000"
+theme.bg_focus      = "#ffffff2a"
 theme.bg_urgent     = "#ff0000"
-theme.bg_minimize   = "#444444"
-theme.bg_systray    = theme.bg_normal
+theme.bg_minimize   = "#ffffff0e"
+theme.bg_systray    = "#151815" -- can't use transparency, so fake it
 
-theme.fg_normal     = "#222222"
+theme.fg_normal     = "#ffffff"
 theme.fg_focus      = "#ffffff"
 theme.fg_urgent     = "#ffffff"
-theme.fg_minimize   = "#ffffff"
+theme.fg_minimize   = "#ffffff8d"
 
 theme.border_width  = 0
 theme.border_normal = "#000000"
@@ -25,7 +25,8 @@ theme.border_marked = "#91231c"
 -- There are other variable sets
 -- overriding the default one when
 -- defined, the sets are:
--- [taglist|tasklist]_[bg|fg]_[focus|urgent]
+-- taglist_[bg|fg]_[focus|urgent|occupied|empty]
+-- tasklist_[bg|fg]_[focus|urgent]
 -- titlebar_[bg|fg]_[normal|focus]
 -- tooltip_[font|opacity|fg_color|bg_color|border_width|border_color]
 -- mouse_finder_[color|timeout|animate_timeout|radius|factor]
@@ -90,8 +91,8 @@ theme.layout_dwindle = "/home/max/.config/awesome/themes/max/layouts/dwindlew.pn
 
 theme.awesome_icon = "/home/max/.config/awesome/themes/max/awesome.png"
 
--- Define the icon theme for application icons. If not set then the icons from
--- /usr/share/icons and /usr/share/icons/hicolor will be used.
+-- Define the icon theme for application icons. If not set then the icons 
+-- from /usr/share/icons and /usr/share/icons/hicolor will be used.
 theme.icon_theme = nil
 
 return theme
