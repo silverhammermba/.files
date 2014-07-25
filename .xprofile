@@ -1,4 +1,5 @@
 xrdb -merge ~/.Xresources
+start-pulseaudio-x11
 wicd-client --tray &
 xcompmgr -f -D 3 &
 ~/.local/bin/random_background
