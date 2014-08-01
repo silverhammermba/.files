@@ -7,8 +7,6 @@ require("awful.autofocus")
 local wibox = require("wibox")
 -- Theme handling library
 local beautiful = require("beautiful")
--- Notification library
-local naughty = require("naughty")
 local menubar = require("menubar")
 
 -- {{{ Error handling
@@ -37,7 +35,7 @@ end
 -- }}}
 
 -- {{{ Variable definitions
--- Themes define colours, icons, and wallpapers
+-- Themes define colours, icons, font and wallpapers.
 beautiful.init("/home/max/.config/awesome/themes/h5g/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
@@ -235,17 +233,14 @@ globalkeys = awful.util.table.join(
 
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
-    awful.key({ modkey, "Control" }, "r", awesome.restart),
-    awful.key({ modkey, "Shift"   }, "q", awesome.quit),
+    awful.key({ modkey, "Control" }, "r",      awesome.restart),
+    awful.key({ modkey, "Shift"   }, "q",      awesome.quit),
+    awful.key({ modkey,           }, "j",      function () awful.layout.inc(layouts,  1) end),
+    awful.key({ modkey,           }, "k",      function () awful.layout.inc(layouts, -1) end),
+    awful.key({ modkey, "Control" }, "n",      awful.client.restore),
 
-    awful.key({ modkey,           }, "j",   function () awful.layout.inc(layouts,  1) end),
-    awful.key({ modkey,           }, "k", function () awful.layout.inc(layouts, -1) end),
-
-    awful.key({ modkey, "Control" }, "n", awful.client.restore),
-
-    -- Prompt
-    awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run() end),
-
+    -- Menubar
+    awful.key({ modkey }, "r", function () menubar.show() end),
     awful.key({ modkey }, "x",
               function ()
                   awful.prompt.run({ prompt = "Run Lua code: " },
@@ -253,8 +248,19 @@ globalkeys = awful.util.table.join(
                   awful.util.eval, nil,
                   awful.util.getdir("cache") .. "/history_eval")
               end),
-    -- Menubar
-    awful.key({ modkey }, "p", function() menubar.show() end)
+
+    -- Extra Keyboard Keys
+    awful.key({ }, "XF86ScreenSaver"     , function () awful.util.spawn("xscreensaver-command -lock") end),
+    -- awful.key({ }, "XF86WebCam"          , function () awful.util.spawn() end),
+    -- awful.key({ }, "XF86Display"         , function () awful.util.spawn() end),
+    awful.key({ }, "XF86AudioPrev"       , function () awful.util.spawn("mpc prev") end),
+    awful.key({ }, "XF86AudioPlay"       , function () awful.util.spawn("mpc toggle") end),
+    awful.key({ }, "XF86AudioNext"       , function () awful.util.spawn("mpc next") end),
+    awful.key({ }, "XF86AudioMute"       , function () awful.util.spawn("ponymix -N toggle") end),
+    awful.key({ }, "XF86AudioLowerVolume", function () awful.util.spawn("ponymix -N decrease 10") end),
+    awful.key({ }, "XF86AudioRaiseVolume", function () awful.util.spawn("ponymix -N increase 10") end),
+    awful.key({ }, "XF86AudioMicMute"    , function () awful.util.spawn("amixer set Capture toggle") end)
+    -- awful.key({ }, "XF86Launch1"         , function () awful.util.spawn() end)
 )
 
 clientkeys = awful.util.table.join(
@@ -359,6 +365,10 @@ awful.rules.rules = {
 -- Signal function to execute when a new client appears.
 client.connect_signal("manage", function (c, startup)
     if not startup then
+        -- Set the windows at the slave,
+        -- i.e. put it at the end of others instead of setting it master.
+        -- awful.client.setslave(c)
+
         -- Put windows in a smart way, only if they does not set an initial position.
         if not c.size_hints.user_position and not c.size_hints.program_position then
             awful.placement.no_overlap(c)
