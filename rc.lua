@@ -344,6 +344,8 @@ awful.rules.rules = {
       properties = { floating = true } },
     { rule = { class = "XTerm" },
       properties = { opacity = 0.8 } },
+    { rule = { class = "hl2_linux" },
+      properties = { tag = tags[1][1], floating = true, fullscreen = true } },
 }
 -- }}}
 
