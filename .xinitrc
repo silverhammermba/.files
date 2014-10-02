@@ -1,3 +1,2 @@
 ~/.xprofile
-awesome
-xkillall
+exec awesome
