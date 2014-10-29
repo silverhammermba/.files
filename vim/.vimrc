@@ -38,6 +38,9 @@ set mouse=a
 set splitbelow
 set splitright
 
+" no double space after periods
+set nojoinspaces
+
 syntax enable
 filetype plugin indent on
 
