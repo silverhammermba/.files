@@ -60,7 +60,7 @@ autocmd BufEnter * silent! lcd %:p:h
 " set textwidth for certain file types
 autocmd Filetype tex      setlocal textwidth=80
 autocmd FileType text     setlocal textwidth=80
-autocmd FileType markdown setlocal textwidth=80
+autocmd FileType markdown setlocal textwidth=80 expandtab
 
 " ruby indentation style
 autocmd FileType ruby setlocal tabstop=2 shiftwidth=2 expandtab
