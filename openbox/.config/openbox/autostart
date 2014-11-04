@@ -1,4 +1,5 @@
 feh --bg-fill /data/pictures/steamos.png
-/usr/bin/xscreensaver -no-splash &
-/home/max/scripts/restart.sh xbmc &
-/home/max/scripts/restart.sh steam &
+/usr/bin/xset -dpms
+/usr/bin/xset s off
+/usr/bin/xbmc &
+/usr/bin/steam &
