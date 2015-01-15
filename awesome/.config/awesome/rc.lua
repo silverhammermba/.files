@@ -7,6 +7,11 @@ require("awful.autofocus")
 local wibox = require("wibox")
 -- Theme handling library
 local beautiful = require("beautiful")
+-- Notification library
+local lgi = require 'lgi'
+local notify = lgi.require('Notify')
+notify.init("awesome")
+-- Menubar
 local menubar = require("menubar")
 -- Widget library
 local vicious = require("vicious")
@@ -15,9 +20,12 @@ local vicious = require("vicious")
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
 if awesome.startup_errors then
-    naughty.notify({ preset = naughty.config.presets.critical,
-                     title = "Oops, there were errors during startup!",
-                     text = awesome.startup_errors })
+    local err = notify.Notification.new(
+        "Oops, there were errors during startup!",
+        awesome.startup_errors,
+        "dialog-error"
+    )
+    err:show()
 end
 
 -- Handle runtime errors after startup
@@ -28,9 +36,12 @@ do
         if in_error then return end
         in_error = true
 
-        naughty.notify({ preset = naughty.config.presets.critical,
-                         title = "Oops, an error happened!",
-                         text = err })
+        local err = notify.Notification.new(
+            "Oops, an error happened!",
+            err,
+            "dialog-error"
+        )
+        err:show()
         in_error = false
     end)
 end
@@ -107,7 +118,6 @@ vicious.register(mybattery, vicious.widgets.bat, " $1$2%", 61, "BAT0")
 
 -- Create a wibox for each screen and add it
 mywibox = {}
-mypromptbox = {}
 mylayoutbox = {}
 mytaglist = {}
 mytaglist.buttons = awful.util.table.join(
@@ -156,8 +166,6 @@ mytasklist.buttons = awful.util.table.join(
                                           end))
 
 for s = 1, screen.count() do
-    -- Create a promptbox for each screen
-    mypromptbox[s] = awful.widget.prompt()
     -- Create an imagebox widget which will contains an icon indicating which layout we're using.
     -- We need one layoutbox per screen.
     mylayoutbox[s] = awful.widget.layoutbox(s)
@@ -178,7 +186,6 @@ for s = 1, screen.count() do
     -- Widgets that are aligned to the left
     local left_layout = wibox.layout.fixed.horizontal()
     left_layout:add(mytaglist[s])
-    left_layout:add(mypromptbox[s])
 
     -- Widgets that are aligned to the right
     local right_layout = wibox.layout.fixed.horizontal()
@@ -246,7 +253,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "n",      awful.client.restore),
 
     -- Menubar
-    awful.key({ modkey }, "r", function () menubar.show() end),
+    awful.key({ modkey }, "r", function() menubar.show() end),
     awful.key({ modkey }, "x",
               function ()
                   awful.prompt.run({ prompt = "Run Lua code: " },
@@ -257,8 +264,8 @@ globalkeys = awful.util.table.join(
 
     -- Extra Keyboard Keys
     awful.key({ }, "XF86ScreenSaver"     , function () awful.util.spawn("xscreensaver-command -lock") end),
-    -- awful.key({ }, "XF86WebCam"          , function () awful.util.spawn() end),
-    -- awful.key({ }, "XF86Display"         , function () awful.util.spawn() end),
+ -- awful.key({ }, "XF86WebCam"          , function () awful.util.spawn() end),
+ -- awful.key({ }, "XF86Display"         , function () awful.util.spawn() end),
     awful.key({ }, "XF86AudioPrev"       , function () awful.util.spawn("mpc prev") end),
     awful.key({ }, "XF86AudioPlay"       , function () awful.util.spawn("mpc toggle") end),
     awful.key({ }, "XF86AudioNext"       , function () awful.util.spawn("mpc next") end),
@@ -266,7 +273,7 @@ globalkeys = awful.util.table.join(
     awful.key({ }, "XF86AudioLowerVolume", function () awful.util.spawn("ponymix -N decrease 10") end),
     awful.key({ }, "XF86AudioRaiseVolume", function () awful.util.spawn("ponymix -N increase 10") end),
     awful.key({ }, "XF86AudioMicMute"    , function () awful.util.spawn("amixer set Capture toggle") end)
-    -- awful.key({ }, "XF86Launch1"         , function () awful.util.spawn() end)
+ -- awful.key({ }, "XF86Launch1"         , function () awful.util.spawn() end)
 )
 
 clientkeys = awful.util.table.join(
