@@ -569,7 +569,7 @@
 	<decor>no</decor>
 	<shade>no</shade>
 </application>
-<application name="xbmc*">
+<application name="Kodi">
 	<desktop>1</desktop>
 	<fullscreen>yes</fullscreen>
 </application>
