@@ -6,4 +6,4 @@ start-pulseaudio-x11
 amixer -c PCH set Headphone 0%
 amixer -c PCH set Front 100%
 amixer -c PCH set Master 100%
-mplayer ~/.config/awesome/themes/max/startup.ogg &
+mplayer ~/.config/awesome/theme/startup.ogg &
