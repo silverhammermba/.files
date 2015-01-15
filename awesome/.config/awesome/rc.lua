@@ -8,15 +8,22 @@ local wibox = require("wibox")
 -- Theme handling library
 local beautiful = require("beautiful")
 -- Notification library
+local lgi = require 'lgi'
+local notify = lgi.require('Notify')
+notify.init("awesome")
+-- Menubar
 local menubar = require("menubar")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
 if awesome.startup_errors then
-    naughty.notify({ preset = naughty.config.presets.critical,
-                     title = "Oops, there were errors during startup!",
-                     text = awesome.startup_errors })
+    local err = notify.Notification.new(
+        "Oops, there were errors during startup!",
+        awesome.startup_errors,
+        "dialog-error"
+    )
+    err:show()
 end
 
 -- Handle runtime errors after startup
@@ -27,16 +34,19 @@ do
         if in_error then return end
         in_error = true
 
-        naughty.notify({ preset = naughty.config.presets.critical,
-                         title = "Oops, an error happened!",
-                         text = err })
+        local err = notify.Notification.new(
+            "Oops, an error happened!",
+            err,
+            "dialog-error"
+        )
+        err:show()
         in_error = false
     end)
 end
 -- }}}
 
 -- {{{ Variable definitions
--- Themes define colours, icons, and wallpapers
+-- Themes define colours, icons, font and wallpapers.
 beautiful.init("/home/max/.config/awesome/theme/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
@@ -103,7 +113,6 @@ mytextclock = awful.widget.textclock()
 
 -- Create a wibox for each screen and add it
 mywibox = {}
-mypromptbox = {}
 mylayoutbox = {}
 mytaglist = {}
 mytaglist.buttons = awful.util.table.join(
@@ -152,8 +161,6 @@ mytasklist.buttons = awful.util.table.join(
                                           end))
 
 for s = 1, screen.count() do
-    -- Create a promptbox for each screen
-    mypromptbox[s] = awful.widget.prompt()
     -- Create an imagebox widget which will contains an icon indicating which layout we're using.
     -- We need one layoutbox per screen.
     mylayoutbox[s] = awful.widget.layoutbox(s)
@@ -174,7 +181,6 @@ for s = 1, screen.count() do
     -- Widgets that are aligned to the left
     local left_layout = wibox.layout.fixed.horizontal()
     left_layout:add(mytaglist[s])
-    left_layout:add(mypromptbox[s])
 
     -- Widgets that are aligned to the right
     local right_layout = wibox.layout.fixed.horizontal()
@@ -202,6 +208,8 @@ root.buttons(awful.util.table.join(
 
 -- {{{ Key bindings
 globalkeys = awful.util.table.join(
+    awful.key({ modkey,           }, "Left",  awful.tag.viewprev       ),
+    awful.key({ modkey,           }, "Right", awful.tag.viewnext       ),
     awful.key({ modkey,           }, "Tab",   awful.tag.history.restore),
 
     awful.key({ modkey,           }, "h",
@@ -219,6 +227,8 @@ globalkeys = awful.util.table.join(
     -- Layout manipulation
     awful.key({ modkey, "Shift"   }, "h", function () awful.client.swap.byidx(-1)     end),
     awful.key({ modkey, "Shift"   }, "l", function () awful.client.swap.byidx( 1)     end),
+    awful.key({ modkey, "Control" }, "h", function () awful.screen.focus_relative(-1) end),
+    awful.key({ modkey, "Control" }, "l", function () awful.screen.focus_relative( 1) end),
     awful.key({ modkey,           }, "o", function () awful.screen.focus_relative(1)  end),
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto),
     awful.key({ alt,              }, "Tab",
@@ -232,20 +242,20 @@ globalkeys = awful.util.table.join(
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
     awful.key({ modkey, "Control" }, "r",      awesome.restart),
-    awful.key({ modkey, "Control" }, "q",      awesome.quit),
+    awful.key({ modkey, "Shift"   }, "q",      awesome.quit),
     awful.key({ modkey,           }, "j",      function () awful.layout.inc(layouts,  1) end),
     awful.key({ modkey,           }, "k",      function () awful.layout.inc(layouts, -1) end),
-    awful.key({ modkey, "Control" }, "n", awful.client.restore),
+    awful.key({ modkey, "Control" }, "n",      awful.client.restore),
 
+    -- Menubar
+    awful.key({ modkey }, "r", function() menubar.show() end),
     awful.key({ modkey }, "x",
               function ()
                   awful.prompt.run({ prompt = "Run Lua code: " },
                   mypromptbox[mouse.screen].widget,
                   awful.util.eval, nil,
                   awful.util.getdir("cache") .. "/history_eval")
-              end),
-    -- Menubar
-    awful.key({ modkey }, "r", function() menubar.show() end)
+              end)
 )
 
 clientkeys = awful.util.table.join(
@@ -258,6 +268,11 @@ clientkeys = awful.util.table.join(
             -- The client currently has the input focus, so it cannot be
             -- minimized, since minimized clients can't have the focus.
             c.minimized = true
+        end),
+    awful.key({ modkey,           }, "m",
+        function (c)
+            c.maximized_horizontal = not c.maximized_horizontal
+            c.maximized_vertical   = not c.maximized_vertical
         end)
 )
 
