@@ -1,4 +1,4 @@
+VBoxClient-all
 xrdb -merge ~/.Xresources
-VBoxClient-all &
 start-pulseaudio-x11
 xcompmgr -f -D 3 &
