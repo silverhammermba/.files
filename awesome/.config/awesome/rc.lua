@@ -102,7 +102,6 @@ mytextclock = awful.widget.textclock()
 
 -- Create a wibox for each screen and add it
 mywibox = {}
-mypromptbox = {}
 mylayoutbox = {}
 mytaglist = {}
 mytaglist.buttons = awful.util.table.join(
@@ -151,8 +150,6 @@ mytasklist.buttons = awful.util.table.join(
                                           end))
 
 for s = 1, screen.count() do
-    -- Create a promptbox for each screen
-    mypromptbox[s] = awful.widget.prompt()
     -- Create an imagebox widget which will contains an icon indicating which layout we're using.
     -- We need one layoutbox per screen.
     mylayoutbox[s] = awful.widget.layoutbox(s)
@@ -173,7 +170,6 @@ for s = 1, screen.count() do
     -- Widgets that are aligned to the left
     local left_layout = wibox.layout.fixed.horizontal()
     left_layout:add(mytaglist[s])
-    left_layout:add(mypromptbox[s])
 
     -- Widgets that are aligned to the right
     local right_layout = wibox.layout.fixed.horizontal()
@@ -240,27 +236,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "n",      awful.client.restore),
 
     -- Menubar
-    awful.key({ modkey }, "r", function () menubar.show() end),
-    awful.key({ modkey }, "x",
-              function ()
-                  awful.prompt.run({ prompt = "Run Lua code: " },
-                  mypromptbox[mouse.screen].widget,
-                  awful.util.eval, nil,
-                  awful.util.getdir("cache") .. "/history_eval")
-              end),
-
-    -- Extra Keyboard Keys
-    awful.key({ }, "XF86ScreenSaver"     , function () awful.util.spawn("xscreensaver-command -lock") end),
-    -- awful.key({ }, "XF86WebCam"          , function () awful.util.spawn() end),
-    -- awful.key({ }, "XF86Display"         , function () awful.util.spawn() end),
-    awful.key({ }, "XF86AudioPrev"       , function () awful.util.spawn("mpc prev") end),
-    awful.key({ }, "XF86AudioPlay"       , function () awful.util.spawn("mpc toggle") end),
-    awful.key({ }, "XF86AudioNext"       , function () awful.util.spawn("mpc next") end),
-    awful.key({ }, "XF86AudioMute"       , function () awful.util.spawn("ponymix -N toggle") end),
-    awful.key({ }, "XF86AudioLowerVolume", function () awful.util.spawn("ponymix -N decrease 10") end),
-    awful.key({ }, "XF86AudioRaiseVolume", function () awful.util.spawn("ponymix -N increase 10") end),
-    awful.key({ }, "XF86AudioMicMute"    , function () awful.util.spawn("amixer set Capture toggle") end)
-    -- awful.key({ }, "XF86Launch1"         , function () awful.util.spawn() end)
+    awful.key({ modkey }, "r", function() menubar.show() end)
 )
 
 clientkeys = awful.util.table.join(
