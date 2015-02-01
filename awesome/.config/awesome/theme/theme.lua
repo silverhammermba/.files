@@ -4,7 +4,7 @@
 
 theme = {}
 
-theme.font          = "DejaVuSans 8"
+theme.font = "DejaVuSans 8"
 
 theme.wallpaper = ".config/awesome/theme/background.png"
 
