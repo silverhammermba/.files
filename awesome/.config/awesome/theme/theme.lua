@@ -6,8 +6,8 @@ theme = {}
 
 theme.font          = "DejaVuSans 8"
 
-theme.bg_normal     = "#e03f83"
-theme.bg_focus      = "#6f3579"
+theme.bg_normal     = "png:/share/bar.png"
+theme.bg_focus      = "png:/share/bar_dark.png"
 theme.bg_urgent     = "#ff0000"
 theme.bg_minimize   = "#444444"
 theme.bg_systray    = theme.bg_normal
@@ -40,7 +40,8 @@ theme.taglist_squares_unsel = "/home/max/.config/awesome/theme/taglist/squarew.p
 -- menu_[bg|fg]_[normal|focus]
 -- menu_[border_color|border_width]
 theme.menu_submenu_icon = "/home/max/.config/awesome/theme/submenu.png"
-theme.menu_height = 15
+theme.menu_bg_normal     = "#e03f83"
+theme.menu_height = 19
 theme.menu_width  = 100
 
 -- You can add as many variables as
