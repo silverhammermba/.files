@@ -8,16 +8,22 @@ local wibox = require("wibox")
 -- Theme handling library
 local beautiful = require("beautiful")
 -- Notification library
-local naughty = require("naughty")
-local menubar = require("menubar")
+local lgi = require("lgi")
+local notify = lgi.require("Notify")
+notify.init("awesome")
+-- Alternate layouts
+local lain = require("lain")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
 if awesome.startup_errors then
-    naughty.notify({ preset = naughty.config.presets.critical,
-                     title = "Oops, there were errors during startup!",
-                     text = awesome.startup_errors })
+    local err = notify.Notification.new(
+        "Oops, there were errors during startup!",
+        awesome.startup_errors,
+        "dialog-error"
+    )
+    err:show()
 end
 
 -- Handle runtime errors after startup
@@ -28,9 +34,12 @@ do
         if in_error then return end
         in_error = true
 
-        naughty.notify({ preset = naughty.config.presets.critical,
-                         title = "Oops, an error happened!",
-                         text = err })
+        local err = notify.Notification.new(
+            "Oops, an error happened!",
+            err,
+            "dialog-error"
+        )
+        err:show()
         in_error = false
     end)
 end
@@ -38,7 +47,7 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init("/home/max/.config/awesome/theme/theme.lua")
+beautiful.init(".config/awesome/theme/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "xterm"
@@ -56,8 +65,8 @@ modkey = "Mod4"
 -- Table of layouts to cover with awful.layout.inc, order matters.
 local layouts =
 {
-    awful.layout.suit.tile,
-    awful.layout.suit.fair.horizontal,
+    lain.layout.uselesstile,
+    lain.layout.uselessfair.horizontal,
     awful.layout.suit.max,
     awful.layout.suit.floating,
 }
@@ -94,8 +103,6 @@ mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesom
                                   }
                         })
 
--- Menubar configuration
-menubar.utils.terminal = terminal -- Set the terminal for applications that require it
 -- }}}
 
 -- {{{ Wibox
@@ -167,7 +174,7 @@ for s = 1, screen.count() do
     mytasklist[s] = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, mytasklist.buttons)
 
     -- Create the wibox
-    mywibox[s] = awful.wibox({ position = "top", height = 22, screen = s })
+    mywibox[s] = awful.wibox({ position = "top", height = beautiful.wibox_height, screen = s })
 
     -- Widgets that are aligned to the left
     local left_layout = wibox.layout.fixed.horizontal()
@@ -261,7 +268,7 @@ clientkeys = awful.util.table.join(
 -- Bind all key numbers to tags.
 -- Be careful: we use keycodes to make it works on any keyboard layout.
 -- This should map on the top row of your keyboard, usually 1 to 9.
-for i = 1, 9 do
+for i = 1, 4 do
     globalkeys = awful.util.table.join(globalkeys,
         -- View tag only.
         awful.key({ modkey }, "#" .. i + 9,
@@ -337,8 +344,6 @@ awful.rules.rules = {
     { rule = { class = "Exe" },
       properties = { floating = true } },
     { rule = { class = "Steam" },
-      properties = { floating = true } },
-    { rule = { name = "Wicd Network Manager" },
       properties = { floating = true } },
     { rule = { class = "XTerm" },
       properties = { opacity = 0.8 } },
