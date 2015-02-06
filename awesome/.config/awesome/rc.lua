@@ -11,8 +11,6 @@ local beautiful = require("beautiful")
 local lgi = require 'lgi'
 local notify = lgi.require('Notify')
 notify.init("awesome")
--- Menubar
-local menubar = require("menubar")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -47,7 +45,7 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init("/home/max/.config/awesome/theme/theme.lua")
+beautiful.init(".config/awesome/theme/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "xterm"
@@ -103,8 +101,6 @@ mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesom
                                   }
                         })
 
--- Menubar configuration
-menubar.utils.terminal = terminal -- Set the terminal for applications that require it
 -- }}}
 
 -- {{{ Wibox
@@ -176,7 +172,7 @@ for s = 1, screen.count() do
     mytasklist[s] = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, mytasklist.buttons)
 
     -- Create the wibox
-    mywibox[s] = awful.wibox({ position = "top", screen = s })
+    mywibox[s] = awful.wibox({ position = "top", height = beautiful.wibox_height, screen = s })
 
     -- Widgets that are aligned to the left
     local left_layout = wibox.layout.fixed.horizontal()
@@ -248,14 +244,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "n",      awful.client.restore),
 
     -- Menubar
-    awful.key({ modkey }, "r", function() menubar.show() end),
-    awful.key({ modkey }, "x",
-              function ()
-                  awful.prompt.run({ prompt = "Run Lua code: " },
-                  mypromptbox[mouse.screen].widget,
-                  awful.util.eval, nil,
-                  awful.util.getdir("cache") .. "/history_eval")
-              end)
+    awful.key({ modkey }, "r", function() awful.util.spawn("dmenu_run") end)
 )
 
 clientkeys = awful.util.table.join(
