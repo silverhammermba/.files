@@ -8,9 +8,11 @@ local wibox = require("wibox")
 -- Theme handling library
 local beautiful = require("beautiful")
 -- Notification library
-local lgi = require 'lgi'
-local notify = lgi.require('Notify')
+local lgi = require("lgi")
+local notify = lgi.require("Notify")
 notify.init("awesome")
+-- Alternate layouts
+local lain = require("lain")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -63,8 +65,8 @@ modkey = "Mod4"
 -- Table of layouts to cover with awful.layout.inc, order matters.
 local layouts =
 {
-    awful.layout.suit.tile,
-    awful.layout.suit.fair.horizontal,
+    lain.layout.uselesstile,
+    lain.layout.uselessfair.horizontal,
     awful.layout.suit.max,
     awful.layout.suit.floating,
 }

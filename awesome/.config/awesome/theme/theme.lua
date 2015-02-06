@@ -13,13 +13,13 @@ theme.bg_focus      = "png:.config/awesome/theme/bg_focus.png"
 theme.bg_urgent     = "#ff0000" -- TODO make less ugly
 theme.bg_minimize   = "#ffffff0e"
 theme.bg_systray    = theme.bg_normal
--- TODO tray icons have focus background
 
 theme.fg_normal     = "#000000"
 theme.fg_focus      = "#000000"
 theme.fg_urgent     = "#000000"
 theme.fg_minimize   = "#ffffff8d"
 
+theme.useless_gap_width = 5
 theme.border_width  = 0
 -- unused
 theme.border_normal = "#000000"
@@ -40,18 +40,20 @@ theme.menu_width        = 200
 theme.wallpaper = ".config/awesome/theme/background.jpg"
 
 -- layout icons
-theme.layout_fairh      = ".config/awesome/theme/layouts/fairh.png"
-theme.layout_fairv      = ".config/awesome/theme/layouts/fairv.png"
-theme.layout_floating   = ".config/awesome/theme/layouts/floating.png"
-theme.layout_magnifier  = ".config/awesome/theme/layouts/magnifier.png"
-theme.layout_max        = ".config/awesome/theme/layouts/max.png"
-theme.layout_fullscreen = ".config/awesome/theme/layouts/fullscreen.png"
-theme.layout_tilebottom = ".config/awesome/theme/layouts/tilebottom.png"
-theme.layout_tileleft   = ".config/awesome/theme/layouts/tileleft.png"
-theme.layout_tile       = ".config/awesome/theme/layouts/tile.png"
-theme.layout_tiletop    = ".config/awesome/theme/layouts/tiletop.png"
-theme.layout_spiral     = ".config/awesome/theme/layouts/spiral.png"
-theme.layout_dwindle    = ".config/awesome/theme/layouts/dwindle.png"
+theme.layout_uselesstile  = ".config/awesome/theme/layouts/tile.png"
+theme.layout_uselessfairh = ".config/awesome/theme/layouts/fairh.png"
+theme.layout_fairh        = ".config/awesome/theme/layouts/fairh.png"
+theme.layout_fairv        = ".config/awesome/theme/layouts/fairv.png"
+theme.layout_floating     = ".config/awesome/theme/layouts/floating.png"
+theme.layout_magnifier    = ".config/awesome/theme/layouts/magnifier.png"
+theme.layout_max          = ".config/awesome/theme/layouts/max.png"
+theme.layout_fullscreen   = ".config/awesome/theme/layouts/fullscreen.png"
+theme.layout_tilebottom   = ".config/awesome/theme/layouts/tilebottom.png"
+theme.layout_tileleft     = ".config/awesome/theme/layouts/tileleft.png"
+theme.layout_tile         = ".config/awesome/theme/layouts/tile.png"
+theme.layout_tiletop      = ".config/awesome/theme/layouts/tiletop.png"
+theme.layout_spiral       = ".config/awesome/theme/layouts/spiral.png"
+theme.layout_dwindle      = ".config/awesome/theme/layouts/dwindle.png"
 
 theme.awesome_icon = ".config/awesome/theme/awesome.png"
 
