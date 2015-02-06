@@ -9,7 +9,7 @@
 [diff]
 	renames = copy
 	mnemonicprefix = true
-	tool = kompare
+	tool = vimdiff
 [merge]
 	tool = vimdiff
 [alias]
