@@ -18,4 +18,3 @@ XTerm.vt100.translations: #override \
 	~Shift<BtnUp>:           select-end(CLIPBOARD, CUT_BUFFER1) \n\
 	 Meta Shift Ctrl <Key>V: insert-selection(PRIMARY, CUT_BUFFER0) \n\
 	~Meta Shift Ctrl <Key>V: insert-selection(CLIPBOARD, CUT_BUFFER1)
-
