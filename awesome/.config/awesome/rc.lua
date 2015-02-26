@@ -350,6 +350,8 @@ awful.rules.rules = {
       properties = { floating = true } },
     { rule = { class = "Steam" },
       properties = { floating = true } },
+    { rule = { class = "Pavucontrol" },
+      properties = { floating = true } },
     { rule = { class = "Inkscape" },
       properties = { floating = false, maximized_horizontal = false, maximized_vertical = false } },
     { rule = { class = "XTerm" },
