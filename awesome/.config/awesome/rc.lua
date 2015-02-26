@@ -11,6 +11,8 @@ local beautiful = require("beautiful")
 local lgi = require("lgi")
 local notify = lgi.require("Notify")
 notify.init("awesome")
+-- Menubar
+local menubar = require("menubar")
 -- Alternate layouts
 local lain = require("lain")
 
@@ -48,6 +50,7 @@ end
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init(".config/awesome/theme/theme.lua")
+menubar.prompt_args.bg_cursor = theme.bg_cursor
 
 -- This is used later as the default terminal and editor to run.
 terminal = "xterm"
@@ -246,7 +249,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "n",      awful.client.restore),
 
     -- Menubar
-    awful.key({ modkey }, "r", function() awful.util.spawn("dmenu_run") end)
+    awful.key({ modkey }, "r", function() menubar.show() end)
 )
 
 clientkeys = awful.util.table.join(
