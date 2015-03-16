@@ -264,8 +264,8 @@ globalkeys = awful.util.table.join(
     awful.key({ }, "XF86AudioMute"       , function () awful.util.spawn("ponymix -N toggle") end),
     awful.key({ }, "XF86AudioLowerVolume", function () awful.util.spawn("ponymix -N decrease 10") end),
     awful.key({ }, "XF86AudioRaiseVolume", function () awful.util.spawn("ponymix -N increase 10") end),
-    awful.key({ }, "XF86AudioMicMute"    , function () awful.util.spawn("amixer set Capture toggle") end)
- -- awful.key({ }, "XF86Launch1"         , function () awful.util.spawn() end)
+    awful.key({ }, "XF86AudioMicMute"    , function () awful.util.spawn("amixer set Capture toggle") end),
+    awful.key({ }, "XF86Launch1"         , function () awful.util.spawn("toggle_touchpad") end)
 )
 
 clientkeys = awful.util.table.join(
