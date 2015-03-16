@@ -8,9 +8,7 @@ local wibox = require("wibox")
 -- Theme handling library
 local beautiful = require("beautiful")
 -- Notification library
-local lgi = require 'lgi'
-local notify = lgi.require('Notify')
-notify.init("awesome")
+local naughty = require("naughty")
 -- Menubar
 local menubar = require("menubar")
 -- Widget library
@@ -20,12 +18,9 @@ local vicious = require("vicious")
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
 if awesome.startup_errors then
-    local err = notify.Notification.new(
-        "Oops, there were errors during startup!",
-        awesome.startup_errors,
-        "dialog-error"
-    )
-    err:show()
+    naughty.notify({ preset = naughty.config.presets.critical,
+                     title = "Oops, there were errors during startup!",
+                     text = awesome.startup_errors })
 end
 
 -- Handle runtime errors after startup
@@ -36,12 +31,9 @@ do
         if in_error then return end
         in_error = true
 
-        local err = notify.Notification.new(
-            "Oops, an error happened!",
-            err,
-            "dialog-error"
-        )
-        err:show()
+        naughty.notify({ preset = naughty.config.presets.critical,
+                         title = "Oops, an error happened!",
+                         text = err })
         in_error = false
     end)
 end
