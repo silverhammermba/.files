@@ -352,7 +352,7 @@ awful.rules.rules = {
       properties = { floating = true } },
     { rule = { class = "Pavucontrol" },
       properties = { floating = true } },
-    { rule = { class = "Inkscape" },
+    { rule = { class = "Inkscape" }, except = { type = "dialog" },
       properties = { floating = false, maximized_horizontal = false, maximized_vertical = false } },
     { rule = { class = "XTerm" },
       properties = { opacity = 0.8 } },
