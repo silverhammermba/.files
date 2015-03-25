@@ -11,7 +11,8 @@ export PS1='$(__git_ps1 "%s ")\[\e[1;34m\]\h\[\e[m\]:\[\e[0;33m\]\W\[\e[m\]$ '
 export EDITOR=vim
 
 # colors
-alias ls='ls --color=auto -B'
+alias ls='ls --color=auto'
+alias userctl='systemctl --user'
 eval $(dircolors -b)
 alias grep='grep --color=auto'
 export LESS="-R"
