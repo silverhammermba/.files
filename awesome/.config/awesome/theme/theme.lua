@@ -13,7 +13,7 @@ theme.bg_focus      = "png:.config/awesome/theme/bg_focus.png"
 theme.bg_urgent     = "#ff0000" -- TODO make less ugly
 theme.bg_minimize   = "#ffffff0e"
 theme.bg_systray    = theme.bg_normal
-theme.bg_cursor     = "#000000" -- since bg_focus is a PNG
+theme.bg_cursor     = "#ff0000" -- since bg_focus is a PNG
 
 theme.fg_normal     = "#000000"
 theme.fg_focus      = "#000000"
