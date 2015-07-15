@@ -1,5 +1,4 @@
 xrdb -merge ~/.Xresources
-xcompmgr -f -D 3 &
 ~/.local/bin/random_background
 start-pulseaudio-x11
 mplayer ~/.config/awesome/theme/startup.ogg &
