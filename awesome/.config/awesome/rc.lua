@@ -13,8 +13,6 @@ local notify = lgi.require("Notify")
 notify.init("awesome")
 -- Menubar
 local menubar = require("menubar")
--- Alternate layouts
-local lain = require("lain")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -68,8 +66,8 @@ modkey = "Mod4"
 -- Table of layouts to cover with awful.layout.inc, order matters.
 local layouts =
 {
-    lain.layout.uselesstile,
-    lain.layout.uselessfair.horizontal,
+    awful.layout.suit.tile,
+    awful.layout.suit.fair.horizontal,
     awful.layout.suit.max,
     awful.layout.suit.floating,
 }
