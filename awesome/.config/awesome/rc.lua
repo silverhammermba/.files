@@ -76,10 +76,11 @@ end
 
 -- {{{ Tags
 -- Define a tag table which hold all screen tags.
+local tagnames = { "α", "β", "γ", "δ" }
 tags = {}
 for s = 1, screen.count() do
     -- Each screen has its own tag table.
-    tags[s] = awful.tag({ "α", "β", "γ", "δ" }, s, layouts[1])
+    tags[s] = awful.tag(tagnames, s, layouts[1])
 end
 -- }}}
 
@@ -288,7 +289,7 @@ clientkeys = awful.util.table.join(
 -- Bind all key numbers to tags.
 -- Be careful: we use keycodes to make it works on any keyboard layout.
 -- This should map on the top row of your keyboard, usually 1 to 9.
-for i = 1, 9 do
+for i = 1, #tagnames do
     globalkeys = awful.util.table.join(globalkeys,
         -- View tag only.
         awful.key({ modkey }, "#" .. i + 9,
