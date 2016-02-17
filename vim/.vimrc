@@ -65,8 +65,9 @@ autocmd FileType markdown setlocal textwidth=80 expandtab
 " ruby indentation style
 autocmd FileType ruby setlocal tabstop=2 shiftwidth=2 expandtab
 
-" haskell indentation style
+" indentation style
 autocmd FileType haskell setlocal expandtab
+autocmd FileType ruby setlocal expandtab
 
 " syntax highlighting for GLSL shaders
 autocmd BufNewFile,BufRead *.glsl setlocal ft=glsl
