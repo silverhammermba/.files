@@ -6,7 +6,7 @@ XTerm.vt100.foreground: white
 XTerm.vt100.utf8: true
 XTerm.vt100.renderFont: true
 XTerm.vt100.faceName: DejaVu Sans Mono
-XTerm.vt100.faceSize: 10
+XTerm.vt100.faceSize: 14
 
 ! disable bell
 XTerm.vt100.visualBell: true
