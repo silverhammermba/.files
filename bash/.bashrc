@@ -6,9 +6,17 @@ GIT_PS1_SHOWDIRTYSTATE="true"
 GIT_PS1_SHOWUPSTREAM="auto"
 source $HOME/.git-completion.sh
 source $HOME/.git-prompt.sh
-export PS1='$(__git_ps1 "%s ")\[\e[1;34m\]\h\[\e[m\]:\[\e[0;33m\]\W\[\e[m\]$ '
+
+BLUE="\[$(tput setaf 4)\]"
+YELLOW="\[$(tput setaf 3)\]"
+BOLD="\[$(tput bold)\]"
+RESET="\[$(tput sgr0)\]"
+
+export PS1="\$(__git_ps1 \"%s \")$BLUE$BOLD\h$RESET:$YELLOW\W$RESET\$ "
 
 export EDITOR=vim
+# change how ls shows spaces
+export QUOTING_STYLE=escape
 
 # colors
 alias ls='ls --color=auto'
