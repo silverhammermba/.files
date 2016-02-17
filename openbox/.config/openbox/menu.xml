@@ -15,6 +15,9 @@
 		<item label="Google Chrome">
 			<action name="Execute"><command>google-chrome-stable</command></action>
 		</item>
+		<item label="Kodi">
+			<action name="Execute"><command>kodi</command></action>
+		</item>
 		<item label="Steam">
 			<action name="Execute"><command>steam</command></action>
 		</item>
@@ -26,9 +29,6 @@
 		</item>
 		<item label="VLC">
 			<action name="Execute"><command>vlc</command></action>
-		</item>
-		<item label="Kodi">
-			<action name="Execute"><command>kodi-standalone</command></action>
 		</item>
 		<separator />
 		<menu id="system-menu"/>

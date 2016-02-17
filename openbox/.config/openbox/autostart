@@ -1,5 +1,4 @@
 feh --bg-fill /data/pictures/steamos.png
 /usr/bin/xset -dpms
 /usr/bin/xset s off
-/usr/bin/kodi-standalone &
 /usr/bin/steam &
