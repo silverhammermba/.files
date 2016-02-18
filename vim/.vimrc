@@ -77,4 +77,9 @@ highlight def link whiteSpaceError Error
 autocmd Syntax * syn match whiteSpaceError "\(\S\| \)\@<=\t\+" containedin=ALL
 autocmd Syntax * syn match whiteSpaceError "\s\+\%#\@<!$"      containedin=ALL
 
+" fix background clearing in 256-color terminals
+if &term =~ '256color'
+  set t_ut=
+endif
+
 colorscheme desert256
