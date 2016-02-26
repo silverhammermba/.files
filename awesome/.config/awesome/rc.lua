@@ -44,7 +44,7 @@ end
 beautiful.init("/home/max/.config/awesome/theme/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "xterm"
+terminal = "urxvt"
 editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -368,7 +368,7 @@ awful.rules.rules = {
       properties = { floating = true } },
     { rule = { name = "Wicd Network Manager" },
       properties = { floating = true } },
-    { rule = { class = "XTerm" },
+    { rule = { class = "URxvt" },
       properties = { opacity = 0.8 } },
 }
 -- }}}
