@@ -1,4 +1,4 @@
-xrdb -merge ~/.Xresources
+xrdb ~/.Xresources
 start-pulseaudio-x11
 compton -b -f -D 3
 ~/.local/bin/random_background
