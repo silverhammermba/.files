@@ -1,22 +1,26 @@
 ! colors
-XTerm*termName: xterm-256color
+Rxvt.background: black
+Rxvt.foreground: white
+! fix bold blue being same as normal blue
+Rxvt.color12: rgb:5c/5c/ff
+
+Rxvt.font: xft:DejaVu Sans Mono:size=10
+! tighter spacing
+Rxvt.letterSpace: -1
+
+Rxvt.scrollBar: false
+
+! old XTerm config
+XTerm.termName: xterm-256color
 XTerm.vt100.background: black
 XTerm.vt100.foreground: white
-
-! unicode fonts
-XTerm.vt100.utf8: true
-XTerm.vt100.renderFont: true
 XTerm.vt100.faceName: DejaVu Sans Mono
 XTerm.vt100.faceSize: 10
-
-! disable bell
 XTerm.vt100.visualBell: true
 XTerm.vt100.visualBellDelay: 0
-
 ! copy-paste
 XTerm.vt100.translations: #override \
 	 Shift<BtnUp>:           select-end(PRIMARY, CUT_BUFFER0) \n\
 	~Shift<BtnUp>:           select-end(CLIPBOARD, CUT_BUFFER1) \n\
 	 Meta Shift Ctrl <Key>V: insert-selection(PRIMARY, CUT_BUFFER0) \n\
 	~Meta Shift Ctrl <Key>V: insert-selection(CLIPBOARD, CUT_BUFFER1)
-
