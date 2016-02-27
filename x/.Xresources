@@ -1,3 +1,6 @@
+! 256 color
+XTerm*termName: xterm-256color
+
 ! colors
 XTerm.vt100.background: black
 XTerm.vt100.foreground: white
