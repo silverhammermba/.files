@@ -8,9 +8,7 @@ local wibox = require("wibox")
 -- Theme handling library
 local beautiful = require("beautiful")
 -- Notification library
-local lgi = require("lgi")
-local notify = lgi.require("Notify")
-notify.init("awesome")
+local naughty = require("naughty")
 -- Menubar
 local menubar = require("menubar")
 
@@ -18,12 +16,9 @@ local menubar = require("menubar")
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
 if awesome.startup_errors then
-    local err = notify.Notification.new(
-        "Oops, there were errors during startup!",
-        awesome.startup_errors,
-        "dialog-error"
-    )
-    err:show()
+    naughty.notify({ preset = naughty.config.presets.critical,
+                     title = "Oops, there were errors during startup!",
+                     text = awesome.startup_errors })
 end
 
 -- Handle runtime errors after startup
@@ -34,12 +29,9 @@ do
         if in_error then return end
         in_error = true
 
-        local err = notify.Notification.new(
-            "Oops, an error happened!",
-            err,
-            "dialog-error"
-        )
-        err:show()
+        naughty.notify({ preset = naughty.config.presets.critical,
+                         title = "Oops, an error happened!",
+                         text = err })
         in_error = false
     end)
 end
@@ -47,11 +39,11 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init(".config/awesome/theme/theme.lua")
+beautiful.init("/home/max/.config/awesome/theme/theme.lua")
 menubar.prompt_args.bg_cursor = theme.bg_cursor
 
 -- This is used later as the default terminal and editor to run.
-terminal = "xterm"
+terminal = "urxvt"
 editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -83,10 +75,11 @@ end
 
 -- {{{ Tags
 -- Define a tag table which hold all screen tags.
+local tagnames = { "α", "β", "γ", "δ" }
 tags = {}
 for s = 1, screen.count() do
     -- Each screen has its own tag table.
-    tags[s] = awful.tag({ "α", "β", "γ", "δ" }, s, layouts[1])
+    tags[s] = awful.tag(tagnames, s, layouts[1])
 end
 -- }}}
 
@@ -104,6 +97,8 @@ mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesom
                                   }
                         })
 
+-- Menubar configuration
+menubar.utils.terminal = terminal -- Set the terminal for applications that require it
 -- }}}
 
 -- {{{ Wibox
@@ -271,7 +266,7 @@ clientkeys = awful.util.table.join(
 -- Bind all key numbers to tags.
 -- Be careful: we use keycodes to make it works on any keyboard layout.
 -- This should map on the top row of your keyboard, usually 1 to 9.
-for i = 1, 4 do
+for i = 1, #tagnames do
     globalkeys = awful.util.table.join(globalkeys,
         -- View tag only.
         awful.key({ modkey }, "#" .. i + 9,
@@ -352,7 +347,7 @@ awful.rules.rules = {
       properties = { floating = true } },
     { rule = { class = "Inkscape" }, except = { type = "dialog" },
       properties = { floating = false, maximized_horizontal = false, maximized_vertical = false } },
-    { rule = { class = "XTerm" },
+    { rule = { class = "URxvt" },
       properties = { opacity = 0.8 } },
     { rule = { class = "hl2_linux" },
       properties = { tag = tags[1][1], floating = true, fullscreen = true } },

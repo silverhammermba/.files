@@ -65,6 +65,9 @@ autocmd FileType markdown setlocal textwidth=80 expandtab
 " ruby indentation style
 autocmd FileType ruby setlocal tabstop=2 shiftwidth=2 expandtab
 
+" haskell indentation style
+autocmd FileType ruby setlocal expandtab
+
 " syntax highlighting for GLSL shaders
 autocmd BufNewFile,BufRead *.glsl setlocal ft=glsl
 
@@ -72,5 +75,10 @@ autocmd BufNewFile,BufRead *.glsl setlocal ft=glsl
 highlight def link whiteSpaceError Error
 autocmd Syntax * syn match whiteSpaceError "\(\S\| \)\@<=\t\+" containedin=ALL
 autocmd Syntax * syn match whiteSpaceError "\s\+\%#\@<!$"      containedin=ALL
+
+" fix background clearing in 256-color terminals
+if &term =~ '256color'
+  set t_ut=
+endif
 
 colorscheme desert256

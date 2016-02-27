@@ -8,8 +8,8 @@ theme.font          = "DejaVu Sans Mono 10"
 
 theme.wibox_height = 21
 
-theme.bg_normal     = "png:.config/awesome/theme/bg_normal.png"
-theme.bg_focus      = "png:.config/awesome/theme/bg_focus.png"
+theme.bg_normal     = "png:/home/max/.config/g/awesome/theme/bg_normal.png"
+theme.bg_focus      = "png:/home/max/.config/g/awesome/theme/bg_focus.png"
 theme.bg_urgent     = "#ff0000" -- TODO make less ugly
 theme.bg_minimize   = "#ffffff0e"
 theme.bg_systray    = theme.bg_normal
@@ -28,35 +28,35 @@ theme.border_focus  = "#000000"
 theme.border_marked = "#000000"
 
 -- taglist
-theme.taglist_bg_focus      = "png:.config/awesome/theme/taglist/bg_focus.png"
-theme.taglist_squares_sel   = ".config/awesome/theme/taglist/square_sel.png"
-theme.taglist_squares_unsel = ".config/awesome/theme/taglist/square_unsel.png"
+theme.taglist_bg_focus      = "png:/home/max/.config/g/awesome/theme/taglist/bg_focus.png"
+theme.taglist_squares_sel   = "/home/max/.config/g/awesome/theme/taglist/square_sel.png"
+theme.taglist_squares_unsel = "/home/max/.config/g/awesome/theme/taglist/square_unsel.png"
 
 -- menu
 theme.menu_bg_normal    = "#ffffff"
-theme.menu_submenu_icon = ".config/awesome/theme/submenu.png"
+theme.menu_submenu_icon = "/home/max/.config/g/awesome/theme/submenu.png"
 theme.menu_height       = theme.wibox_height
 theme.menu_width        = 200
 
-theme.wallpaper = ".config/awesome/theme/background.jpg"
+theme.wallpaper = "/home/max/.config/g/awesome/theme/background.jpg"
 
 -- layout icons
-theme.layout_uselesstile  = ".config/awesome/theme/layouts/tile.png"
-theme.layout_uselessfairh = ".config/awesome/theme/layouts/fairh.png"
-theme.layout_fairh        = ".config/awesome/theme/layouts/fairh.png"
-theme.layout_fairv        = ".config/awesome/theme/layouts/fairv.png"
-theme.layout_floating     = ".config/awesome/theme/layouts/floating.png"
-theme.layout_magnifier    = ".config/awesome/theme/layouts/magnifier.png"
-theme.layout_max          = ".config/awesome/theme/layouts/max.png"
-theme.layout_fullscreen   = ".config/awesome/theme/layouts/fullscreen.png"
-theme.layout_tilebottom   = ".config/awesome/theme/layouts/tilebottom.png"
-theme.layout_tileleft     = ".config/awesome/theme/layouts/tileleft.png"
-theme.layout_tile         = ".config/awesome/theme/layouts/tile.png"
-theme.layout_tiletop      = ".config/awesome/theme/layouts/tiletop.png"
-theme.layout_spiral       = ".config/awesome/theme/layouts/spiral.png"
-theme.layout_dwindle      = ".config/awesome/theme/layouts/dwindle.png"
+theme.layout_uselesstile  = "/home/max/.config/g/awesome/theme/layouts/tile.png"
+theme.layout_uselessfairh = "/home/max/.config/g/awesome/theme/layouts/fairh.png"
+theme.layout_fairh        = "/home/max/.config/g/awesome/theme/layouts/fairh.png"
+theme.layout_fairv        = "/home/max/.config/g/awesome/theme/layouts/fairv.png"
+theme.layout_floating     = "/home/max/.config/g/awesome/theme/layouts/floating.png"
+theme.layout_magnifier    = "/home/max/.config/g/awesome/theme/layouts/magnifier.png"
+theme.layout_max          = "/home/max/.config/g/awesome/theme/layouts/max.png"
+theme.layout_fullscreen   = "/home/max/.config/g/awesome/theme/layouts/fullscreen.png"
+theme.layout_tilebottom   = "/home/max/.config/g/awesome/theme/layouts/tilebottom.png"
+theme.layout_tileleft     = "/home/max/.config/g/awesome/theme/layouts/tileleft.png"
+theme.layout_tile         = "/home/max/.config/g/awesome/theme/layouts/tile.png"
+theme.layout_tiletop      = "/home/max/.config/g/awesome/theme/layouts/tiletop.png"
+theme.layout_spiral       = "/home/max/.config/g/awesome/theme/layouts/spiral.png"
+theme.layout_dwindle      = "/home/max/.config/g/awesome/theme/layouts/dwindle.png"
 
-theme.awesome_icon = ".config/awesome/theme/awesome.png"
+theme.awesome_icon = "/home/max/.config/g/awesome/theme/awesome.png"
 
 -- use default application icons
 theme.icon_theme = nil
