@@ -1,4 +1,4 @@
-xrdb -merge ~/.Xresources
+[[ -f ~/.Xresources ]] && xrdb ~/.Xresources
 ~/.local/bin/random_background
 start-pulseaudio-x11
 xcompmgr -f -D 3 &

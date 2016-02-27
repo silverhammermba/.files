@@ -1,6 +1,3 @@
-! 256 color
-XTerm*termName: xterm-256color
-
 ! colors
 Rxvt.background: black
 Rxvt.foreground: white
