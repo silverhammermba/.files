@@ -1,4 +1,5 @@
 [[ -f ~/.Xresources ]] && xrdb ~/.Xresources
+xinput set-prop 11 'libinput Tapping Enabled' 1
 start-pulseaudio-x11
 compton -b -f -D 3
 ~/.local/bin/random_background
