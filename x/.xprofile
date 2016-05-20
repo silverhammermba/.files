@@ -1,5 +1,5 @@
 [[ -f ~/.Xresources ]] && xrdb ~/.Xresources
-~/.local/bin/random_background
 start-pulseaudio-x11
 xcompmgr -f -D 3 &
-mplayer ~/.config/awesome/theme/startup.ogg &
+ruby ~/.config/awesome/themer.rb ~/Pictures/backgrounds
+#mplayer ~/.config/awesome/theme/startup.ogg &
