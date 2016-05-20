@@ -40,7 +40,6 @@ end
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init("/home/max/.config/awesome/theme/theme.lua")
-menubar.prompt_args.bg_cursor = theme.bg_cursor
 
 -- This is used later as the default terminal and editor to run.
 terminal = "urxvt"
@@ -75,7 +74,11 @@ end
 
 -- {{{ Tags
 -- Define a tag table which hold all screen tags.
-local tagnames = { "α", "β", "γ", "δ" }
+local tagnames = {}
+for t = 1, 4 do
+	tagnames[t] = "•"
+end
+
 tags = {}
 for s = 1, screen.count() do
     -- Each screen has its own tag table.
@@ -170,7 +173,7 @@ for s = 1, screen.count() do
     mytasklist[s] = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, mytasklist.buttons)
 
     -- Create the wibox
-    mywibox[s] = awful.wibox({ position = "top", height = beautiful.wibox_height, screen = s })
+    mywibox[s] = awful.wibox({ position = "top", screen = s })
 
     -- Widgets that are aligned to the left
     local left_layout = wibox.layout.fixed.horizontal()
@@ -334,6 +337,8 @@ awful.rules.rules = {
     { rule = { name = "Counter-Strike" },
       properties = { floating = true } },
     { rule = { class = "Display" },
+      properties = { floating = true } },
+    { rule = { class = "gnuplot_qt" },
       properties = { floating = true } },
     { rule = { class = "Gvim" },
       properties = { opacity = 0.95 } },
