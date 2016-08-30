@@ -36,10 +36,9 @@ man() {
 			man "$@"
 }
 
-# autocomplete binaries after certain commands
+# completion for certain commands
 complete -cf sudo
-complete -cf man
-complete -cf which
+complete -c man which
 
 alias \:q='exit'
 alias \:e='vim'
