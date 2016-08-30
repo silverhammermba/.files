@@ -9,15 +9,18 @@ theme.font = "DejaVuSans 8"
 theme.wallpaper = "/home/max/.config/awesome/theme/background.png"
 
 theme.bg_normal     = "#e03f83"
-theme.bg_focus      = "#6f3579"
-theme.bg_urgent     = "#ff0000"
-theme.bg_minimize   = "#444444"
-theme.bg_systray    = theme.bg_normal
-
 theme.fg_normal     = "#222222"
+
+theme.bg_focus      = "#6f3579"
 theme.fg_focus      = "#ffffff"
+
+theme.bg_urgent     = "#ff0000"
 theme.fg_urgent     = "#ffffff"
+
+theme.bg_minimize   = "#444444"
 theme.fg_minimize   = "#ffffff"
+
+theme.bg_systray    = theme.bg_normal
 
 theme.border_width  = 0
 -- must be defined, even though they aren't used

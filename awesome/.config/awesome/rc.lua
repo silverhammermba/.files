@@ -76,7 +76,11 @@ end
 
 -- {{{ Tags
 -- Define a tag table which hold all screen tags.
-local tagnames = { "α", "β", "γ", "δ" }
+local tagnames = {}
+for t = 1, 4 do
+	tagnames[t] = "•"
+end
+
 tags = {}
 for s = 1, screen.count() do
     -- Each screen has its own tag table.
@@ -365,6 +369,8 @@ awful.rules.rules = {
     { rule = { class = "Exe" },
       properties = { floating = true } },
     { rule = { class = "Steam" },
+      properties = { floating = true } },
+    { rule = { class = "gnuplot_qt" },
       properties = { floating = true } },
     { rule = { name = "Wicd Network Manager" },
       properties = { floating = true } },
