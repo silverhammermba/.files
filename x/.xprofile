@@ -1,5 +1,6 @@
+#!/bin/bash
 [[ -f ~/.Xresources ]] && xrdb ~/.Xresources
-xinput set-prop 11 'libinput Tapping Enabled' 1
+xinput set-prop $(xinput list | awk '/TouchPad/ {print substr($6,4)}') 'libinput Tapping Enabled' 1
 start-pulseaudio-x11
 compton -b -f -D 3
-~/.local/bin/random_background
+ruby ~/.config/awesome/themer.rb ~/Pictures/backgrounds
