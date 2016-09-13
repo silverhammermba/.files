@@ -7,6 +7,7 @@
 *.o
 *.so
 *.pyc
+*.class
 # latex files
 *.aux
 *.dvi
