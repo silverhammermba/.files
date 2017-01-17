@@ -20,20 +20,17 @@ export QUOTING_STYLE=escape
 
 # colors
 alias ls='ls --color=auto'
-alias userctl='systemctl --user'
 eval $(dircolors -b)
 alias grep='grep --color=auto'
 export LESS="-R"
 man() {
-	env \
-		LESS_TERMCAP_mb=$(printf "\e[1;31m") \
-		LESS_TERMCAP_md=$(printf "\e[1;31m") \
-		LESS_TERMCAP_me=$(printf "\e[0m") \
-		LESS_TERMCAP_se=$(printf "\e[0m") \
-		LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
-		LESS_TERMCAP_ue=$(printf "\e[0m") \
-		LESS_TERMCAP_us=$(printf "\e[1;32m") \
-			man "$@"
+	LESS_TERMCAP_md=$(tput bold; tput setaf 33) \
+	LESS_TERMCAP_me=$(tput sgr0) \
+	LESS_TERMCAP_so=$(tput bold; tput setab 127) \
+	LESS_TERMCAP_se=$(tput sgr0) \
+	LESS_TERMCAP_us=$(tput smul; tput bold; tput setaf 40) \
+	LESS_TERMCAP_ue=$(tput sgr0) \
+	command man "$@"
 }
 
 # autocomplete binaries after certain commands
@@ -43,6 +40,7 @@ complete -cf which
 
 alias \:q='exit'
 alias \:e='vim'
+alias userctl='systemctl --user'
 
 bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
