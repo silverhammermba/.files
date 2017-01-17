@@ -1,5 +1,7 @@
 [[ -f ~/.Xresources ]] && xrdb ~/.Xresources
 start-pulseaudio-x11
-xcompmgr -f -D 3 &
 ruby ~/.config/awesome/themer.rb ~/Pictures/backgrounds
-#mplayer ~/.config/awesome/theme/startup.ogg &
+eval feh --bg-fill --no-fehbg $(grep wallpaper ~/.config/awesome/theme/theme.lua | cut -d= -f2)
+# TODO compton opts?
+compton -b
+xset -b
