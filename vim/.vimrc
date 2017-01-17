@@ -68,8 +68,9 @@ autocmd FileType ruby setlocal tabstop=2 shiftwidth=2 expandtab
 " haskell indentation style
 autocmd FileType ruby setlocal expandtab
 
-" syntax highlighting for GLSL shaders
+" syntax highlighting for other languages
 autocmd BufNewFile,BufRead *.glsl setlocal ft=glsl
+autocmd BufNewFile,BufRead *.scala setlocal ft=scala
 
 " highlight erroneous whitespace
 highlight def link whiteSpaceError Error
