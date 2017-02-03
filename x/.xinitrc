@@ -1,2 +1,2 @@
 ~/.xprofile
-exec awesome 1>~/.config/awesome/log 2>~/.config/awesome/err
+exec i3 1>~/.config/i3/log 2>~/.config/i3/err

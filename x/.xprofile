@@ -3,4 +3,4 @@
 xinput set-prop $(xinput list | awk '/TouchPad/ {print substr($6,4)}') 'libinput Tapping Enabled' 1
 start-pulseaudio-x11
 compton -b -f -D 3
-ruby ~/.config/awesome/themer.rb ~/Pictures/backgrounds
+feh --bg-fill --no-fehbg $(find ~/Pictures/backgrounds -maxdepth 1 -type f | shuf -n 1)
