@@ -41,6 +41,9 @@ set splitright
 " no double space after periods
 set nojoinspaces
 
+" don't fork gvim
+set guioptions+=f
+
 syntax enable
 filetype plugin indent on
 
