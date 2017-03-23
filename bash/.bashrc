@@ -20,7 +20,6 @@ export QUOTING_STYLE=escape
 
 # colors
 alias ls='ls --color=auto'
-alias userctl='systemctl --user'
 eval $(dircolors -b)
 alias grep='grep --color=auto'
 export LESS="-R"
@@ -42,6 +41,8 @@ complete -c man which
 
 alias \:q='exit'
 alias \:e='vim'
+alias userctl='systemctl --user'
+alias launch="systemd-run --user -EDISPLAY=$DISPLAY"
 
 bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
