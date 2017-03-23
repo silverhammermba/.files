@@ -41,6 +41,9 @@ set splitright
 " no double space after periods
 set nojoinspaces
 
+" don't fork gvim
+set guioptions+=f
+
 syntax enable
 filetype plugin indent on
 
@@ -66,7 +69,7 @@ autocmd FileType markdown setlocal textwidth=80 expandtab
 autocmd FileType ruby setlocal tabstop=2 shiftwidth=2 expandtab
 
 " haskell indentation style
-autocmd FileType ruby setlocal expandtab
+autocmd FileType haskell setlocal expandtab
 
 " syntax highlighting for other languages
 autocmd BufNewFile,BufRead *.glsl setlocal ft=glsl

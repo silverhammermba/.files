@@ -1,8 +1,8 @@
 " color scheme
 colo molokai
 
-" copy text nicely, use icon
-set guioptions=ai
+" copy text nicely, use icon, don't fork
+set guioptions=aif
 
 " set screen size
 set co=84
