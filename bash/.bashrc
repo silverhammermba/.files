@@ -42,9 +42,6 @@ complete -c man which
 alias \:q='exit'
 alias \:e='vim'
 alias userctl='systemctl --user'
-function launch () {
-	($@ &>/dev/null &)
-}
 
 bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
