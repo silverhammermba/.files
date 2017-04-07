@@ -1,11 +1,11 @@
 ! XTerm config
 XTerm.termName: xterm-256color
-XTerm.*.background: black
-XTerm.*.foreground: white
-XTerm.*.visualBell: true
-XTerm.*.visualBellDelay: 0
-XTerm.*.font: -gnu-unifont-*-sans-16-*
+XTerm.vt100.background: black
+XTerm.vt100.foreground: white
+XTerm.vt100.visualBell: true
+XTerm.vt100.visualBellDelay: 0
+XTerm.vt100.font: -gnu-unifont-*-sans-16-*
 
-! WIP better sixel support
-XTerm*decTerminalID: vt340
-XTerm*numColorRegisters: 256
+! better sixel support
+XTerm.vt100.decTerminalID: 340
+XTerm.vt100.numColorRegisters: 256
