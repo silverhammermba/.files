@@ -36,7 +36,7 @@ man() {
 }
 
 # completion for certain commands
-complete -cf sudo
+complete -cf sudo launch
 complete -c man which
 
 alias \:q='exit'
