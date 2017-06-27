@@ -1,7 +1,6 @@
 [[ -f ~/.Xresources ]] && xrdb ~/.Xresources
 start-pulseaudio-x11
 ruby ~/.config/awesome/themer.rb ~/Pictures/backgrounds
+xrandr --output DVI-D-0 --left-of DVI-I-1
 eval feh --bg-fill --no-fehbg $(grep wallpaper ~/.config/awesome/theme/theme.lua | cut -d= -f2)
-# TODO compton opts?
-compton -b
 xset -b
