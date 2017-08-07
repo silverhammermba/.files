@@ -37,6 +37,7 @@ man() {
 complete -cf sudo
 complete -cf man
 complete -cf which
+complete -cf launch
 
 alias \:q='exit'
 alias \:e='vim'
