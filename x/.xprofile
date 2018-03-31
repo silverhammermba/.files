@@ -1,6 +1,8 @@
 #!/bin/bash
 [[ -f ~/.Xresources ]] && xrdb ~/.Xresources
-xinput set-prop $(xinput list | awk '/TouchPad/ {print substr($6,4)}') 'libinput Tapping Enabled' 1
-start-pulseaudio-x11
-compton -b -f -D 3
-feh --bg-fill --no-fehbg $(find ~/Pictures/backgrounds -maxdepth 1 -type f | shuf -n 1)
+if [ "$I3" = true ]; then
+	xinput set-prop $(xinput list | awk '/TouchPad/ {print substr($6,4)}') 'libinput Tapping Enabled' 1
+	start-pulseaudio-x11
+	compton -b -f -D 3
+	feh --bg-fill --no-fehbg $(find ~/Pictures/backgrounds -maxdepth 1 -type f | shuf -n 1)
+fi
