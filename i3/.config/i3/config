@@ -123,6 +123,8 @@ new_window none
 
 # float Steam windows
 for_window [class="Steam"] floating enable
+for_window [class="Steam.exe"] floating enable
+for_window [class="Wine"] floating enable
 
 # no sloppy focus
 focus_follows_mouse no
