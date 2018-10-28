@@ -43,7 +43,7 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
+beautiful.init(gears.filesystem.get_configuration_dir() .. "themes/default/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "xterm"
@@ -173,7 +173,7 @@ screen.connect_signal("property::geometry", set_wallpaper)
 -- Define a tag table which hold all screen tags.
 local tagnames = {}
 for t = 1, 4 do
-	tagnames[t] = "•"
+    tagnames[t] = "•"
 end
 
 awful.screen.connect_for_each_screen(function(s)
@@ -215,7 +215,7 @@ awful.screen.connect_for_each_screen(function(s)
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             wibox.widget.systray(),
-			mybattery,
+            mybattery,
             mytextclock,
             s.mylayoutbox,
         },
@@ -311,7 +311,19 @@ globalkeys = gears.table.join(
               {description = "lua execute prompt", group = "awesome"}),
     -- Menubar
     awful.key({ modkey }, "r", function() menubar.show() end,
-              {description = "show the menubar", group = "launcher"})
+              {description = "show the menubar", group = "launcher"}),
+    -- Extra Keyboard Keys
+ -- awful.key({ }, "XF86ScreenSaver"     , function () awful.util.spawn() end),
+ -- awful.key({ }, "XF86WebCam"          , function () awful.util.spawn() end),
+ -- awful.key({ }, "XF86Display"         , function () awful.util.spawn() end),
+ -- awful.key({ }, "XF86AudioPrev"       , function () awful.util.spawn() end),
+ -- awful.key({ }, "XF86AudioPlay"       , function () awful.util.spawn() end),
+ -- awful.key({ }, "XF86AudioNext"       , function () awful.util.spawn() end),
+    awful.key({ }, "XF86AudioMute"       , function () awful.util.spawn("ponymix -N toggle") end),
+    awful.key({ }, "XF86AudioLowerVolume", function () awful.util.spawn("ponymix -N decrease 10") end),
+    awful.key({ }, "XF86AudioRaiseVolume", function () awful.util.spawn("ponymix -N increase 10") end),
+    awful.key({ }, "XF86AudioMicMute"    , function () awful.util.spawn("amixer set Capture toggle ") end)
+ -- awful.key({ }, "XF86Launch1"         , function () awful.util.spawn() end)
 )
 
 clientkeys = gears.table.join(
