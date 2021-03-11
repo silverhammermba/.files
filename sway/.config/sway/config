@@ -72,6 +72,7 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
     bindsym $mod+Shift+Down move down
     bindsym $mod+Shift+Up move up
     bindsym $mod+Shift+Right move right
+
 #
 # Workspaces:
 #
@@ -99,6 +100,7 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
     bindsym $mod+Shift+0 move container to workspace number 10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
+
 #
 # Layout stuff:
 #
@@ -124,6 +126,7 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 
     # Move focus to the parent container
     bindsym $mod+a focus parent
+
 #
 # Scratchpad:
 #
@@ -136,6 +139,7 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
     bindsym $mod+minus scratchpad show
+
 #
 # Resizing containers:
 #
@@ -160,6 +164,12 @@ mode "resize" {
     bindsym Escape mode "default"
 }
 bindsym $mod+z mode "resize"
+
+# Audio buttons
+bindsym XF86AudioMute        exec ponymix -N toggle
+bindsym XF86AudioLowerVolume exec ponymix -N decrease 10
+bindsym XF86AudioRaiseVolume exec ponymix -N increase 10
+bindsym XF86AudioMicMute     exec amixer set Capture toggle
 
 # Other stuff
 gaps inner 5
