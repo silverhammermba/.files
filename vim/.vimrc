@@ -44,6 +44,9 @@ set nojoinspaces
 " don't fork gvim
 set guioptions+=f
 
+" search subdirectories for files
+set path=.,,**
+
 syntax enable
 filetype plugin indent on
 
@@ -56,9 +59,6 @@ nnoremap <C-H> <C-W><C-H>
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
-
-" update cwd for each buffer
-autocmd BufEnter * silent! lcd %:p:h
 
 " set textwidth for certain file types
 autocmd Filetype tex      setlocal textwidth=80

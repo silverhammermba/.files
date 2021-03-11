@@ -19,3 +19,5 @@
 	wdiff = diff --word-diff
 [push]
 	default = current
+[pull]
+	rebase = false
