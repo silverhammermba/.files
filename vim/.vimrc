@@ -65,6 +65,12 @@ autocmd Filetype tex      setlocal textwidth=80
 autocmd FileType text     setlocal textwidth=80
 autocmd FileType markdown setlocal textwidth=80 expandtab
 
+" highlight words you hate
+highlight def link WritingStyleError Error
+autocmd Syntax * syn match WritingStyleError "\<really\>\c" containedin=ALL
+autocmd Syntax * syn match WritingStyleError "\<just\>\c" containedin=ALL
+autocmd Syntax * syn match WritingStyleError "\<basically\>\c" containedin=ALL
+
 " ruby indentation style
 autocmd FileType ruby setlocal tabstop=2 shiftwidth=2 expandtab
 

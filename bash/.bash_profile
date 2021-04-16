@@ -6,8 +6,8 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export GIMP2_DIRECTORY="$XDG_CONFIG_HOME/gimp"
 export GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
 export MPLAYER_HOME="$XDG_CONFIG_HOME/mplayer"
-export MOZ_ENABLE_WAYLAND=1
-export SDL_VIDEODRIVER=wayland
+#export MOZ_ENABLE_WAYLAND=1
+#export SDL_VIDEODRIVER=wayland
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
