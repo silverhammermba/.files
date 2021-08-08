@@ -4,8 +4,8 @@
 # prompt
 GIT_PS1_SHOWDIRTYSTATE="true"
 GIT_PS1_SHOWUPSTREAM="auto"
-source $HOME/.git-completion.sh
-source $HOME/.git-prompt.sh
+source /usr/share/git/completion/git-completion.bash
+source /usr/share/git/completion/git-prompt.sh
 
 BLUE="\[$(tput setaf 4)\]"
 YELLOW="\[$(tput setaf 3)\]"
