@@ -7,10 +7,12 @@
 [color]
 	ui = true
 [diff]
-	renames = copy
-	mnemonicprefix = true
-	tool = kompare
+	algorithm = histogram
+	colorMoved = plain
+	mnemonicPrefix = true
+	renames = true
 [merge]
+	conflictstyle = zdiff3
 	tool = vimdiff
 [alias]
 	k = !gitk --word-diff &
@@ -18,8 +20,26 @@
 	stat = status -s -uno
 	wdiff = diff --word-diff
 [push]
+	autoSetupRemote = true
 	default = current
 [pull]
 	rebase = false
 [init]
 	defaultBranch = main
+[column]
+	ui = auto
+[branch]
+	sort = -committerdate
+[tag]
+	sort = version:refname
+[fetch]
+	all = true
+	prune = true
+	pruneTags = true
+[help]
+	autocorrect = prompt
+[commit]
+	verbose = true
+[rerere]
+	enabled = true
+	autoupdate = true
