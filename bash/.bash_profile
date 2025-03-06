@@ -11,3 +11,5 @@ export MOZ_ENABLE_WAYLAND=1
 #export SDL_VIDEODRIVER=wayland
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
+
+[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && /usr/lib/plasma-dbus-run-session-if-needed /usr/bin/startplasma-wayland
